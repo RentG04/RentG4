@@ -1,0 +1,3 @@
+Tiene que haber botón de logout cuando estás iniciado
+A nivel de sesión se guardan las cosas
+

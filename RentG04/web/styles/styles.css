@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #666;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    background-image: url(../images/Coche.jpg);
+    background-size: 100% auto;
+}
+ 
+.mesCaducidad{
+    float:left;
+    width: 50%;
+}
+.añoCaducidad{
+    float:right;
+    width:50%;
+}
+
+#form_registro {
+    padding-top: 120px;
+    margin: auto;
+    text-align: center;
+    border-radius: 8px;
+    /*overflow: hidden;
+    transition: 0.5s;*/
+}
+
+#form_registro #fileInput {
+    display: none;
+}
+
+#fileLabelText{
+    
+    text-transform: uppercase;
+    color: orange;
+}
+#dnibox{
+
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 5px dashed black;
+    border-radius: 8px;
+    margin: auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    cursor: pointer;
+    z-index: 0;
+    
+    
+}
+
+h1{
+	font-size: 2.3em;
+	line-height: 1.3em;
+	margin: 15px 0;
+	text-align: center;
+	font-weight: 300;
+        color: white;
+}
+
+h2{
+        font-size: 1em;
+	line-height: 1.3em;
+	margin: 15px 0;
+	font-weight: 100;
+}
+
+#h2{
+        font-size: 1em;
+	line-height: 1.3em;
+	margin: 15px 0;
+	font-weight: 100;
+}
+ 
+p {
+	margin: 0 0 1.5em 0;
+}
+ 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.main-header {
+	background: #EC9B50;
+	color: white;
+	height: 80px;
+	width: 80%; 
+	left: 10%; 
+	top:15px; 
+	position: fixed;
+        z-index: 1;
+}
+ 
+nav {
+	float: right;
+}
+    nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            padding-right: 20px;
+    }
+        nav ul li {
+                display: inline-block;
+                line-height: 80px;
+        }	
+            nav ul li a {
+                    display: block;
+                    padding: 0 10px;
+                    text-decoration: none;
+            }	
+                nav ul li a:hover {
+                        background: #0b76a6;
+                }
+.button {
+    background-color: #EC9B50;
+    border: none;
+    color: #666666;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 8px;
+    transition-duration: 0.2s; 
+    width: auto;
+    padding: auto;
+    margin-left: 10px;
+    margin-top: 25px;
+    display: auto;
+    float: right;
+}
+.button:hover{
+    color: white;
+    
+}
+.button:focus {
+    outline:0;
+}
+/*
+
+*/
+input, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #EC9B50;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    
+}
+.container{
+    color: white;
+    width: 40%;
+    max-width: 800px;
+    margin: 120px auto;
+}
+.logo1{
+    top: 20%;
+    left: 40%;
+    position: absolute;
+}
+
+.textbox{
+    background-color: white;
+}
+
+.error{
+    font-size: 0.7em;
+    color: #FE3F16;
+}
+
+table, td, th {
+    border: 1px solid #EC9B50;
+    text-align: left;    
+    width: 60%;
+    padding: 15px;
+    color: white;
+}
+
+#tablaCoches{
+    position: relative;
+    top: 50px;
+    left: 20%;
+}
