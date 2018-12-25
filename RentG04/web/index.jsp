@@ -3,7 +3,8 @@
     Created on : 18-dic-2018, 16:09:30
     Author     : Iker Lopez
 --%>
-
+<%@page import="utils.BD"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="es">
     <head>
