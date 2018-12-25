@@ -4,10 +4,10 @@
         <servlet-name>b</servlet-name>
         <servlet-class>servlets.Conexion</servlet-class>
     </servlet>
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>b</servlet-name>
         <url-pattern>BaseDatos</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <session-config>
         <session-timeout>
             30

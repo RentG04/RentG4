@@ -13,6 +13,7 @@
             <link rel="stylesheet" href="styles/styles.css">
             <link rel="shortcut icon" href="images/icon.ico">
             <script src="JavaScript/functions.js"></script>
+            <script src="JavaScript/ValidaFecha.js"></script>
             
     </head>
 
@@ -56,10 +57,10 @@
  
                
                 Fecha y hora de recogida<br>
-                <input type="datetime-local" id="horarecogida"  >
+                <input type="datetime-local" id="horarecogida" required>
                     
                 Fecha y hora de entrega<br>
-                <input type="datetime-local" id="horaentrega"  > 
+                <input type="datetime-local" id="horaentrega"  required> 
                 
                 Gama del vehiculo<br>
                 <select name="gama_vehiculo">
@@ -68,7 +69,7 @@
                     <option>Alta</option>
                 </select>
                 
-                <button class="button" type="button"  value="buscar" onclick="cargarCoches()">Buscar</button>
+                <button class="button" type="button"  value="buscar">Buscar</button>
             </form>
         </div>
     </body>
