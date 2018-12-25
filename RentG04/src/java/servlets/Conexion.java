@@ -78,6 +78,7 @@ public class Conexion extends HttpServlet {
         try {
             doPost(req, res);
         } catch (IOException | ServletException e) {
+            e.printStackTrace();
         }
     }
 

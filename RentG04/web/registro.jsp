@@ -34,7 +34,7 @@
                 </nav> 
             </header>
         
-        <form id="form_registro" class="container" ondragover="prevDef()">
+        <form id="form_registro" class="container" action="RegistroUsuario" ondragover="prevDef()" method="post">
             <h1>Registro</h1>
             <label id="dnibox" dropzone="" ondragover="drover()" ondragleave="drleave()">
                 <span id="fileLabelText">
@@ -76,7 +76,7 @@
             </label>-->
             <br>
             <input type="reset" class="button" value="Limpiar" />
-            <input type="submit" class="button" value="Registrarse" id="registrobtn" onclick="add()"/>
+            <input type="submit" class="button" value="Registrarse" id="registrobtn"/>
          </form>       
     </body>
 </html>
