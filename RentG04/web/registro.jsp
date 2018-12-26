@@ -36,7 +36,8 @@
         
         <form id="form_registro" class="container" action="RegistroUsuario" ondragover="prevDef()" method="post">
             <h1>Registro</h1>
-            <label id="dnibox" dropzone="" ondragover="drover()" ondragleave="drleave()">
+            
+            <label id="dnibox" type="file" name="dniBox" dropzone="" ondragover="drover()" ondragleave="drleave()">
                 <span id="fileLabelText">
                     <br>
                     Arrastre y suelte su foto aquí.
@@ -51,12 +52,16 @@
             <input type="email" name="Email" value="" size="25" id="regCorreo" required />
             <br>
             <div class="error" id="error-correo"></div>
+            Teléfono<br>
+            <input type="telefono" name="telefono" value="" size="25" pattern="[0-9]{9}" id="regTelefono" />
+            <br>
+            <div class="error" id="error-correo"></div>
             Contraseña*<br>
             <input type="password" name="Contrasena" value="" id="regContra" pattern="[A-Za-z0-9]{8,16}" size="25" required />
             <br>
             <div class="error" id="error-contrasena"></div>
-            DNI*<br>
-            <input type="text" name="Dni" value="" size="25" id="regDNI" pattern="[0-9]{8}[A-Za-z]{1}" required />
+            DNI<br>
+            <input type="text" name="Dni" value="" size="25" id="regDNI" pattern="[0-9]{8}[A-Za-z]{1}"  />
             
             <br>
             <div class="error" id="error-dni"></div>

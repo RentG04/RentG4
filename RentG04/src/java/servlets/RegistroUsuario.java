@@ -22,13 +22,14 @@ public class RegistroUsuario extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
         res.setContentType("text/html;charset=UTF-8");
-        System.out.println("hola");
+  
         PrintWriter out = res.getWriter();
         //get username & pass from jsp login
         String usuario = (String) req.getParameter("Usuario");
         String contra = (String) req.getParameter("Contrasena");
         String correo = (String) req.getParameter("Email");
         String DNI = (String) req.getParameter("Dni");
+        String telefono = (String) req.getParameter("telefono");
 //        String foto = req.getParameter("username");
         System.out.println("usuario: "+usuario);
         System.out.println("contraseña: "+contra);
@@ -40,7 +41,7 @@ public class RegistroUsuario extends HttpServlet{
         
         try{
             
-            String query = "select * from clientes where DNI= '" + DNI + "'" + ";" ;
+            String query = "select * from clientes where email= '" + correo + "'" + ";" ;
             st = con.createStatement();
             rs = st.executeQuery(query);
             
@@ -59,12 +60,13 @@ public class RegistroUsuario extends HttpServlet{
                 st.close();
                 */
                 
-                PreparedStatement ps = con.prepareStatement("insert into clientes(DNI, usuario, email, password, imagen) values (?,?,?,?,?) ;" );
+                PreparedStatement ps = con.prepareStatement("insert into clientes(DNI, usuario, email, password, telefono, imagen) values (?,?,?,?,?,?) ;" );
                 ps.setString(1, DNI);
                 ps.setString(2, usuario);
                 ps.setString(3, correo);
                 ps.setString(4, contra);
-                ps.setString(5, "");
+                ps.setString(5, telefono);
+                ps.setString(6, "");
                 ps.executeUpdate();
                 System.out.println("Usuario introducido");
                 
