@@ -17,21 +17,24 @@ public class RegistroUsuario extends HttpServlet{
     
     @Override
     public void init(ServletConfig cfg) throws ServletException {
-        con = BD.getConexion();
+       
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
+        res.setContentType("text/html;charset=UTF-8");
+        con = BD.getConexion();
         PrintWriter out = res.getWriter();
         //get username & pass from jsp login
-        String usuario = req.getParameter("regUsuario");
-        String contra = req.getParameter("regContra");
-        String correo = req.getParameter("regCorreo");
-        String DNI = req.getParameter("regDNI");
+        String usuario = req.getParameter("Usuario");
+        String contra = req.getParameter("Contrasena");
+        String correo = req.getParameter("Email");
+        String DNI = req.getParameter("Dni");
 //        String foto = req.getParameter("username");
 
 
         RequestDispatcher rd = null;
-        
+        RequestDispatcher rqs = req.getRequestDispatcher("index.jsp");
+        rqs.include(req, res);
         try{
             String query = "select * from clientes where DNI= '" + DNI + "'" + ";" ;
             Statement st = (Statement) con.createStatement();
@@ -48,8 +51,10 @@ public class RegistroUsuario extends HttpServlet{
                 Statement st1 = (Statement) con.createStatement();
                 ResultSet rs1 = st1.executeQuery(query1);
 
-                req.getRequestDispatcher("index.jsp").forward(req, res);
-//        res.sendRedirect("/index.jsp");
+        //        req.getRequestDispatcher("index.jsp").forward(req, res);
+      //        res.sendRedirect("/index.jsp");
+                rqs = req.getRequestDispatcher("index.jsp");
+                rqs.include(req, res);
                 
             }
             
