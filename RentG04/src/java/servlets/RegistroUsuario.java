@@ -15,10 +15,11 @@ public class RegistroUsuario extends HttpServlet{
 //    private ResultSet rs;
 //    String cad;
     
-    
+    @Override
     public void init(ServletConfig cfg) throws ServletException {
         con = BD.getConexion();
     }
+    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
         PrintWriter out = res.getWriter();
         //get username & pass from jsp login
@@ -56,5 +57,12 @@ public class RegistroUsuario extends HttpServlet{
             e.printStackTrace();
         }
     }
-
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+        try {
+            doPost(req, res);
+        } catch (IOException | ServletException e) {
+        }
+    }
 }
