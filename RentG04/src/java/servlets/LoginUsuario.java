@@ -3,8 +3,10 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,19 +26,28 @@ public class LoginUsuario extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
-        String correo = req.getParameter("logCorreo");
-        String contra = req.getParameter("logContra");
+        String correo = req.getParameter("Usuario");
+        String contra = req.getParameter("Contraseña");
         
         try{
-            String query = "select * from clientes where email= '" + correo + "' and password= '" + contra + ";" ;
-            Statement st = (Statement) con.createStatement();
-            ResultSet rs = st.executeQuery(query);
+            PreparedStatement ps = con.prepareStatement("select * from clientes where email=? and password=? ;") ;
+            ps.setString(1, correo);
+            ps.setString(2, contra);
+            
+            ResultSet rs =ps.executeQuery();
             
             if(rs.next()){
-            //El usuario y la contraseña son correctos
-            }else{
-            //El usuario o la contraseña no son correctos
+                //Login correcto
+                
+                
             }
+            else{
+                //Login incorrecto
+                req.setAttribute("errorlogin", "no user or password");
+                RequestDispatcher rds = req.getRequestDispatcher("login.jsp");
+                rds.include(req, res);
+            }
+            
         }catch(Exception e){
             e.printStackTrace();
         }

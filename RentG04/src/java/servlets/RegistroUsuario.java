@@ -17,7 +17,7 @@ public class RegistroUsuario extends HttpServlet{
     
     @Override
     public void init(ServletConfig cfg) throws ServletException {
-       
+       con = BD.getConexion();
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
@@ -39,7 +39,7 @@ public class RegistroUsuario extends HttpServlet{
         
         
         try{
-            con = BD.getConexion();
+            
             String query = "select * from clientes where DNI= '" + DNI + "'" + ";" ;
             st = con.createStatement();
             rs = st.executeQuery(query);
@@ -70,8 +70,7 @@ public class RegistroUsuario extends HttpServlet{
                 
                 RequestDispatcher rqs = req.getRequestDispatcher("index.jsp");
                 rqs.include(req, res);
-               
-                
+
             }
             
         }catch (Exception e){
