@@ -33,7 +33,11 @@
                     
                 </nav> 
             </header>
-        
+        <%
+                String error = "";
+                if (null != request.getAttribute("errorlogin")) {
+                       error = (String) request.getAttribute("errorlogin");
+                   }%>
         <form id="form_registro" class="container" action="RegistroUsuario" ondragover="prevDef()" method="post">
             <h1>Registro</h1>
             
@@ -51,7 +55,7 @@
             Correo*<br>
             <input type="email" name="Email" value="" size="25" id="regCorreo" required />
             <br>
-            <div class="error" id="error-correo"></div>
+            <div class="error" id="error-correo"><%=error%></div>
             Teléfono<br>
             <input type="telefono" name="telefono" value="" size="25" pattern="[0-9]{9}" id="regTelefono" />
             <br>

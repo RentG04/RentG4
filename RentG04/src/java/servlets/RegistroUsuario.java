@@ -46,10 +46,15 @@ public class RegistroUsuario extends HttpServlet{
             rs = st.executeQuery(query);
             
             if(rs.next()){
-            //El dni ya está en la base de datos
-            System.out.println("El dni ya está en la bd");
-            st.close();
-            rs.close();
+                //El dni ya está en la base de datos
+                System.out.println("El email ya está en la bd");
+                st.close();
+                rs.close();
+                //Login incorrecto
+                req.setAttribute("errorlogin", "El email con el que intenta registrarse ya esta en uso");
+                RequestDispatcher rds = req.getRequestDispatcher("registro.jsp");
+                rds.include(req, res);
+            
             }
             else
             {

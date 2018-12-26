@@ -37,17 +37,16 @@ public class LoginUsuario extends HttpServlet {
             ResultSet rs =ps.executeQuery();
             
             if(rs.next()){
-                //Login correcto
-                
-                
+                //Login correcto  
+                RequestDispatcher rds = req.getRequestDispatcher("index.jsp");
+                rds.include(req, res);
             }
             else{
                 //Login incorrecto
                 req.setAttribute("errorlogin", "no user or password");
                 RequestDispatcher rds = req.getRequestDispatcher("login.jsp");
                 rds.include(req, res);
-            }
-            
+            }  
         }catch(Exception e){
             e.printStackTrace();
         }

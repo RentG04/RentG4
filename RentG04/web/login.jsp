@@ -44,7 +44,7 @@
             <input type="button" class="button" value="Registrarse" onclick="location.href = 'registro.jsp'"/>
             
             <a href="loginEmpleado.jsp">Soy empleado</a>
-            <div id="error-box"><h2><%=error%></h2></div> 
+            <div id="error-login"><h2><%=error%></h2></div> 
             
             <!--Comprobar si el correo existe en la base de datos, y la contrasña también-->
         </form>
