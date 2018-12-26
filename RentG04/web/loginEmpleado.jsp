@@ -1,14 +1,8 @@
-<%-- 
-    Document   : login
-    Created on : 18-dic-2018, 16:27:35
-    Author     : Iker Lopez
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Login Empleado</title>
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="shortcut icon" href="images/icon.ico">
         <script src="JavaScript/functions.js"></script>
@@ -26,19 +20,16 @@
             </nav> 
         </header>
 
-        <form id="form_login" action ="LoginUsuario" method="post" class="container">
+        <form id="form_login" action ="LoginOficinsta" method="post" class="container">
    
-            <h1>Login</h1>
+            <h1>Login Empleado</h1>
             Correo<br>
-            <input type="email" name="Usuario" value="" id="logCorreo"  size="25" required />
+            <input type="email" name="Usuario" value="" id="logCorreoOfi"  size="25" required />
             <br>
             Contraseña<br>
-            <input type="password" name="Contrasena" value="" id="logContra" size="25" required />
+            <input type="password" name="Contrasena" value="" id="logContraOfi" size="25" required />
             <br>
-            <input type="submit" class = "button" onclick="comprobar()" value="Login" />
-            <input type="button" class="button" value="Registrarse" onclick="location.href = 'registro.jsp'"/>
+            <input type="submit" class = "button" onclick="comprobar()" value="Login" />  
             
-            <a href="loginEmpleado.jsp">Soy empleado</a>
-            <!--Comprobar si el correo existe en la base de datos, y la contrasña también-->
         </form>
 </html>

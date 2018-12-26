@@ -11,24 +11,24 @@ import utils.BD;
  */
 public class RegistroUsuario extends HttpServlet{
     private Connection con;
-//    private Statement set;
-//    private ResultSet rs;
+    private Statement st;
+    private ResultSet rs;
 //    String cad;
     
     @Override
     public void init(ServletConfig cfg) throws ServletException {
-       
+       con = BD.getConexion();
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
         res.setContentType("text/html;charset=UTF-8");
-        con = BD.getConexion();
+        System.out.println("hola");
         PrintWriter out = res.getWriter();
         //get username & pass from jsp login
-        String usuario = req.getParameter("Usuario");
-        String contra = req.getParameter("Contrasena");
-        String correo = req.getParameter("Email");
-        String DNI = req.getParameter("Dni");
+        String usuario = (String) req.getParameter("Usuario");
+        String contra = (String) req.getParameter("Contrasena");
+        String correo = (String) req.getParameter("Email");
+        String DNI = (String) req.getParameter("Dni");
 //        String foto = req.getParameter("username");
 
 
@@ -37,24 +37,26 @@ public class RegistroUsuario extends HttpServlet{
         rqs.include(req, res);
         try{
             String query = "select * from clientes where DNI= '" + DNI + "'" + ";" ;
-            Statement st = (Statement) con.createStatement();
-            ResultSet rs = st.executeQuery(query);
+            st = con.createStatement();
+            rs = st.executeQuery(query);
             
             if(rs.next()){
             //El dni ya está en la base de datos
             System.out.println("El dni ya está en la bd");
+            st.close();
+            rs.close();
             }
             else
             {
-                System.out.println("Se ha introducido el usuario en la bd");
+                
                 String query1 = "insert into clientes(DNI, usuario, email, password) values ('" + DNI + "','" + usuario + "'," + correo + "," + contra + ") ;" ;
-                Statement st1 = (Statement) con.createStatement();
-                ResultSet rs1 = st1.executeQuery(query1);
-
-        //        req.getRequestDispatcher("index.jsp").forward(req, res);
-      //        res.sendRedirect("/index.jsp");
+                st = con.createStatement();
+                st.executeUpdate(query1);
+                st.close();
+                
                 rqs = req.getRequestDispatcher("index.jsp");
                 rqs.include(req, res);
+                
                 
             }
             
