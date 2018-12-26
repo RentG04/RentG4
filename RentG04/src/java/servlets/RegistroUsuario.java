@@ -17,7 +17,7 @@ public class RegistroUsuario extends HttpServlet{
     
     @Override
     public void init(ServletConfig cfg) throws ServletException {
-       con = BD.getConexion();
+       
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
@@ -30,12 +30,16 @@ public class RegistroUsuario extends HttpServlet{
         String correo = (String) req.getParameter("Email");
         String DNI = (String) req.getParameter("Dni");
 //        String foto = req.getParameter("username");
+        System.out.println("usuario: "+usuario);
+        System.out.println("contraseña: "+contra);
+        System.out.println("correo: "+correo);
+        System.out.println("Dni: "+DNI);
 
 
-        RequestDispatcher rd = null;
-        RequestDispatcher rqs = req.getRequestDispatcher("index.jsp");
-        rqs.include(req, res);
+        
+        
         try{
+            con = BD.getConexion();
             String query = "select * from clientes where DNI= '" + DNI + "'" + ";" ;
             st = con.createStatement();
             rs = st.executeQuery(query);
@@ -48,15 +52,25 @@ public class RegistroUsuario extends HttpServlet{
             }
             else
             {
-                
+                /*
                 String query1 = "insert into clientes(DNI, usuario, email, password) values ('" + DNI + "','" + usuario + "'," + correo + "," + contra + ") ;" ;
                 st = con.createStatement();
                 st.executeUpdate(query1);
                 st.close();
+                */
                 
-                rqs = req.getRequestDispatcher("index.jsp");
+                PreparedStatement ps = con.prepareStatement("insert into clientes(DNI, usuario, email, password, imagen) values (?,?,?,?,?) ;" );
+                ps.setString(1, DNI);
+                ps.setString(2, usuario);
+                ps.setString(3, correo);
+                ps.setString(4, contra);
+                ps.setString(5, "");
+                ps.executeUpdate();
+                System.out.println("Usuario introducido");
+                
+                RequestDispatcher rqs = req.getRequestDispatcher("index.jsp");
                 rqs.include(req, res);
-                
+               
                 
             }
             
