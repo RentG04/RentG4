@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +25,7 @@ public class LoginUsuario extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
+        res.setContentType("text/html;charset=UTF-8");
         String correo = (String)req.getParameter("Usuario");
         String contra = (String)req.getParameter("Contrasena");
 
@@ -45,6 +45,8 @@ public class LoginUsuario extends HttpServlet {
                 usuario.setEmail(rs.getString("email"));
                 usuario.setContraseña(rs.getString("password"));
                 usuario.setFoto(rs.getString("imagen"));
+                usuario.setDni(rs.getString("dni"));
+                usuario.setTelefono(rs.getString("telefono"));
                 
                 session.setAttribute("usr", usuario);
                 
@@ -56,6 +58,7 @@ public class LoginUsuario extends HttpServlet {
                 req.setAttribute("errorlogin", "usuario o contraseña incorrectos");
                 req.getRequestDispatcher("login.jsp").include(req, res);
             }  
+           
         }catch(Exception e){
             e.printStackTrace();
         }

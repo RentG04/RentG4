@@ -30,11 +30,6 @@ public class RegistroUsuario extends HttpServlet{
         String correo = (String) req.getParameter("Email");
         String DNI = (String) req.getParameter("Dni");
         String telefono = (String) req.getParameter("telefono");
-//        String foto = req.getParameter("username");
-        System.out.println("usuario: "+usuario);
-        System.out.println("contraseña: "+contra);
-        System.out.println("correo: "+correo);
-        System.out.println("Dni: "+DNI);
 
         try{
             

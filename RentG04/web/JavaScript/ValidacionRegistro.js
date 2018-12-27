@@ -1,11 +1,11 @@
-
-function validarRegistro(){
+window.onload = function()
+{
     var usuario = document.getElementById("regUsuario");
     var correo = document.getElementById("regCorreo");
     var contra = document.getElementById("regContra");
     var dni = document.getElementById("regDNI");
-    
-    
+
+
     usuario.onchange = function(){
         if(usuario.value.length < 3 || !usuario){
             //alert("Introduzca un usuario válido");
@@ -16,7 +16,7 @@ function validarRegistro(){
             document.getElementById("error-usuario").innerHTML = "";
         }
     };
-    
+
     correo.onchange = function(){
         if(correo.value.length < 5 || !correo){
             //alert("Introduzca un correo válido");
@@ -27,7 +27,7 @@ function validarRegistro(){
             document.getElementById("error-correo").innerHTML = "";
         }
     };
-    
+
     contra.onchange = function(){
         if(contra.value.length < 8 || !contra){
             //alert("Introduzca una contraseña válida");
@@ -38,7 +38,7 @@ function validarRegistro(){
             document.getElementById("error-contrasena").innerHTML = "";
         }
     };
-    
+
     dni.onchange = function(){
         if(dni.value.length != 9 || !dni){
             //alert("Introduzca un dni válido");
@@ -49,5 +49,5 @@ function validarRegistro(){
             document.getElementById("error-dni").innerHTML = "";
         }
     };
-    
+
 };

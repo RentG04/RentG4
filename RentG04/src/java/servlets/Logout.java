@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 public class Logout extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
+        res.setContentType("text/html;charset=UTF-8");
         HttpSession session=req.getSession();  
         session.invalidate(); 
         req.getRequestDispatcher("index.jsp").include(req, res);  

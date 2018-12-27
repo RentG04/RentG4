@@ -20,16 +20,16 @@
             </nav> 
         </header>
 
-        <form id="form_login" action ="LoginOficinsta" method="post" class="container">
+        <form id="form_login" action="LoginOficinista" method="post" class="container">
    
             <h1>Login Empleado</h1>
-            Correo<br>
-            <input type="email" name="Usuario" value="" id="logCorreoOfi"  size="25" required />
+            Usuario<br>
+            <input type="text" name="Usuario" value="" id="logCorreoOfi"  size="25" required />
             <br>
             Contraseña<br>
             <input type="password" name="Contrasena" value="" id="logContraOfi" size="25" required />
             <br>
-            <input type="submit" class = "button" onclick="comprobar()" value="Login" />  
+            <input type="submit" class = "button" value="Login" />  
             
         </form>
 </html>

@@ -52,7 +52,7 @@
                 </nav> 
             </header>
         
-        <form id="form_registro" class="container" ondragover="prevDef()">
+        <form id="form_actualizar" class="container" ondragover="prevDef()" action="ActualizarDatos" method="POST">
             <h1 id="nombrePerfil"></h1>
             <label id="dnibox" dropzone="" ondragover="drover()" ondragleave="drleave()">
                 <span id="fileLabelText">
@@ -62,24 +62,26 @@
             </label>
             <br>
             Usuario*<br>
-            <input type="text" name="Usuario" class="textbox" value="" pattern="[A-Za-z]{3,}" size="25" id="perfUsuario" required />
+            <input type="text" name="Usuario" class="textbox" value="${usr.usuario}" pattern="[A-Za-z]{3,}" size="25" id="perfUsuario" required />
             <br>
             <div class="error" id="error-usuariop"></div>
             Correo*<br>
-            <input type="email" name="Email" value="" size="25" id="perfCorreo" required />
+            <input readonly type="email" name="Email" value="${usr.email}" size="25" id="perfCorreo" required />
             <br>
             <div class="error" id="error-correop"></div>
             Contraseña*<br>
-            <input type="password" name="Contrasena" value="" id="perfContra" pattern="[A-Za-z0-9]{8,16}" size="25" required />
+            <input type="password" name="Contrasena" value="${usr.contraseña}" id="perfContra" pattern="[A-Za-z0-9]{8,16}" size="25" required />
             <br>
             <div class="error" id="error-contrasenap"></div>
-            DNI*<br>
-            <input readonly type="text" name="Dni" value="" size="25" id="perfDNI" pattern="[0-9]{8}[A-Za-z]{1}" required />
-            
+            DNI<br>
+            <input readonly type="text" name="Dni" value="${usr.dni}" size="25" id="perfDNI" pattern="[0-9]{8}[A-Za-z]{1}" />   
             <br>
             <div class="error" id="error-dnip"></div>
-            
             <br>
+            Telefono<br>
+            <input type="text" name="Telefono" class="textbox" value="${usr.telefono}" pattern="[0-9]{9}" size="25" id="perfTelefono"/>
+            <br>
+            <div class="error" id="error-usuariop"></div>
             
             <input type="submit" class="button" value="Guardar" id="guardarPerfil" onclick="updatePerfil()"/>
          </form>       

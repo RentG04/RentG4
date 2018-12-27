@@ -14,7 +14,22 @@ public class Usuario {
     private String email;
     private String contraseña;
     private String foto;
+    private String dni;
+    private String telefono;
+    
+    public void setTelefono(String telefono){
+        this.telefono = telefono;
+    }
 
+    public String getTelefono(){
+        return telefono;
+    }
+    public void setDni(String dni){
+        this.dni = dni;
+    }
+    public String getDni(){
+        return dni;
+    }
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }

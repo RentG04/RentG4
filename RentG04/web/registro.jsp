@@ -14,9 +14,7 @@
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="shortcut icon" href="images/icon.ico">
         <script src="JavaScript/DragAndDropDNI.js"></script>
-        <script src="JavaScript/ValidacionRegistro.js"></script>
-        <script src="JavaScript/functions.js"></script>
-        
+        <script src="JavaScript/ValidacionRegistro.js"></script>  
     </head> 
     <body>
         <header class="main-header" >

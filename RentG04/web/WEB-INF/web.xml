@@ -8,6 +8,10 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>servlets.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ActualizarDatos</servlet-name>
+        <servlet-class>servlets.ActualizarDatos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistroUsuario</servlet-name>
         <url-pattern>/RegistroUsuario</url-pattern>
@@ -15,6 +19,18 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarDatos</servlet-name>
+        <url-pattern>/ActualizarDatos</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginOficinista</servlet-name>
+        <servlet-class>servlets.LoginOficinista</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginOficinista</servlet-name>
+        <url-pattern>/LoginOficinista</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -24,5 +40,4 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    
 </web-app>
