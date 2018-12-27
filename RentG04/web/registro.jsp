@@ -26,9 +26,7 @@
                 </a>
                 <nav >
                     <ul id="botones">
-                        
-                               <!--<li><button type="button" class="button" value="login" onclick="location.href='login.html'">Login</button></li>-->
-                               <!--<li><button type="button" class="button" value="salir" onclick="salir()">Salir</button></li>-->
+                        <li><button type="button" class="button" value="login" onclick="location.href='login.jsp'">Login</button></li>
                     </ul>
                     
                 </nav> 

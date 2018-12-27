@@ -1,5 +1,6 @@
 package servlets;
 
+import bean.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import utils.BD;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "LoginUsuario", urlPatterns = {"/LoginUsuario"})
 public class LoginUsuario extends HttpServlet {
@@ -28,11 +30,7 @@ public class LoginUsuario extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
         String correo = (String)req.getParameter("Usuario");
         String contra = (String)req.getParameter("Contrasena");
-        
-        System.out.println(correo);
-        System.out.println(contra);
-        
-        
+
         try{
             PreparedStatement ps = con.prepareStatement("select * from clientes where email=? and password=? ;") ;
             ps.setString(1, correo);
@@ -42,12 +40,21 @@ public class LoginUsuario extends HttpServlet {
             
             if(rs.next()){
                 //Login correcto  
-                RequestDispatcher rds = req.getRequestDispatcher("index.jsp");
-                rds.include(req, res);
+                HttpSession session = req.getSession();
+                
+                Usuario usuario = new Usuario();
+                usuario.setUsuario(rs.getString("usuario"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setContraseña(rs.getString("password"));
+                usuario.setFoto(rs.getString("imagen"));
+                
+                session.setAttribute("usr", usuario);
+                
+                res.sendRedirect(req.getContextPath() + "/index.jsp");
             }
             else{
                 //Login incorrecto
-                req.setAttribute("errorlogin", "no user or password");
+                req.setAttribute("errorlogin", "usuario o contraseña incorrectos");
                 RequestDispatcher rds = req.getRequestDispatcher("login.jsp");
                 rds.include(req, res);
             }  

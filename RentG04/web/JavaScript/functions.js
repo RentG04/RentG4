@@ -1,7 +1,7 @@
 
 window.onload = function()
 {
-    
+    /*
     var str="";
     var dir = String(window.location.href); 
     if(sessionStorage.getItem('usuarioLogin') == null){  
@@ -62,10 +62,10 @@ window.onload = function()
             str +=      '            <li><button type="button" class="button" value="salir" onclick="salir()">Salir</button></li>';
             document.getElementById("botones").innerHTML = '<li>'+'Hola, ' +retStorageSession("nomUsuario") + '</li>' + str;
         }
-    }
+    }*/
     
 //    document.getElementById("botones").innerHTML = str;
-    iniciar();
+   // iniciar();
     
 };
 

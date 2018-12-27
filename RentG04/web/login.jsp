@@ -21,7 +21,7 @@
             </a>
             <nav>
                 <ul id="botones">
-                               
+                     <li><button type="button" class="button" value="registro" onclick="location.href='registro.jsp'">Login</button></li>     
                 </ul>
             </nav> 
         </header>

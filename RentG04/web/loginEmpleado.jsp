@@ -15,7 +15,7 @@
             </a>
             <nav>
                 <ul id="botones">
-                               
+                    <li><button type="button" class="button" value="salir" onclick="location.href='index.jsp'">Volver</button></li>
                 </ul>
             </nav> 
         </header>
