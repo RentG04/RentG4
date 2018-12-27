@@ -1,3 +1,4 @@
+<%@page import="utils.ObtenerCabecera"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
@@ -8,18 +9,7 @@
         <script src="JavaScript/functions.js"></script>
     </head>
     <body>
-        <header class="main-header" >
-            <a href="index.jsp">
-                <img alt="logo" src="images/logoTrans.png" width="100"/>
-                <img alt="logo1" class="logo1" id="logo1" src="images/logoTrans2.png" width="200">
-            </a>
-            <nav>
-                <ul id="botones">
-                    <li><button type="button" class="button" value="salir" onclick="location.href='index.jsp'">Volver</button></li>
-                </ul>
-            </nav> 
-        </header>
-
+        <%= ObtenerCabecera.get(request, "loginEmpleado") %>
         <form id="form_login" action="LoginOficinista" method="post" class="container">
    
             <h1>Login Empleado</h1>
@@ -29,7 +19,6 @@
             Contraseña<br>
             <input type="password" name="Contrasena" value="" id="logContraOfi" size="25" required />
             <br>
-            <input type="submit" class = "button" value="Login" />  
-            
+            <input type="submit" class = "button" value="Login" />
         </form>
 </html>

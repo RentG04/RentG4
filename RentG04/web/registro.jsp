@@ -4,6 +4,7 @@
     Author     : Iker Lopez
 --%>
 
+<%@page import="utils.ObtenerCabecera"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,18 +18,7 @@
         <script src="JavaScript/ValidacionRegistro.js"></script>  
     </head> 
     <body>
-        <header class="main-header" >
-                <a href="index.jsp">
-                    <img alt="logo" src="images/logoTrans.png" width="100"/>
-                    <img alt="logo1" class="logo1" id="logo1" src="images/logoTrans2.png" width="200">
-                </a>
-                <nav >
-                    <ul id="botones">
-                        <li><button type="button" class="button" value="login" onclick="location.href='login.jsp'">Login</button></li>
-                    </ul>
-                    
-                </nav> 
-            </header>
+        <%= ObtenerCabecera.get(request, "registro") %>      
         <%
                 String error = "";
                 if (null != request.getAttribute("errorlogin")) {
