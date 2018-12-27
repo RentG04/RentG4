@@ -21,7 +21,7 @@
             </a>
             <nav>
                 <ul id="botones">
-                     <li><button type="button" class="button" value="registro" onclick="location.href='registro.jsp'">Login</button></li>     
+                     <li><button type="button" class="button" value="registro" onclick="location.href='registro.jsp'">Registro</button></li>     
                 </ul>
             </nav> 
         </header>
@@ -31,6 +31,7 @@
                 if (null != request.getAttribute("errorlogin")) {
                        error = (String) request.getAttribute("errorlogin");
                    }%>
+                   
         <form id="form_login" action ="LoginUsuario" method="post" class="container">
    
             <h1>Login</h1>

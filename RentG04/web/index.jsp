@@ -23,37 +23,31 @@
             <a href="index.jsp">
                     <img alt="logo" src="images/logoTrans.png" width="100"/>
                     <img alt="logo1" class="logo1" id="logo1" src="images/logoTrans2.png" width="200">
-                </a>
-            
-<!--                <nav id="nombre">
-                    
-                </nav> -->
-            
-                <nav>
-                    <ul id="botones">
-                        <%
-                            HttpSession s = request.getSession();
-                            try{
-                                Usuario u = (Usuario)s.getAttribute("usr");
-                                if(u==null){
-                                    %>
-                                    <li><button type="button" class="button" value="login" onclick='location.href="login.jsp"'>Login</button></li>
-                                    <li><button type="button" class="button" value="registro" onclick='location.href="registro.jsp"'>Registro</button></li>
-                        <%
-                                }else{
-                                    %>
-                                    <li><button type='button' class='button' value='perfil' onclick='location.href="perfil.jsp"'>Bienvenido <strong>${usr.usuario}</strong></button></li>
-                                    <li><img src='${usr.foto}'></li>
-                                    <li><button type='button' class='button' value='logout' onclick="<%
-                                                        s.setAttribute("usr", null);
-                                                                                                    %> location.href='index.jsp'">Logout</button></li>
-                                    <%
-                                }  
-                            }catch(Exception e){
-                            e.printStackTrace();} 
-                        %>
-                    </ul>
-                </nav>       
+            </a>           
+            <nav>
+                <ul id="botones">
+                    <%
+                        HttpSession s = request.getSession();
+                        try{
+                            Usuario u = (Usuario)s.getAttribute("usr");
+                            if(u==null){
+                    %>
+                                <li><button type="button" class="button" value="login" onclick='location.href="login.jsp"'>Login</button></li>
+                                <li><button type="button" class="button" value="registro" onclick='location.href="registro.jsp"'>Registro</button></li>
+                    <%
+                            }else{
+                                %>
+                                <li><button type='button' class='button' value='perfil' onclick='location.href="perfil.jsp"'>Bienvenido <strong>${usr.usuario}</strong></button></li>
+                                <img src='${usr.foto}' width="45px" align="center">
+                                <li><button type='button' class='button' value='perfil' onclick='location.href="miReserva.jsp"'>Mis reservas</button></li>
+                                <li><a href="Logout" ><button type='button' class='button' value='logout'>Logout</button></a></li>
+                                <%
+                            }  
+                        }catch(Exception e){
+                        e.printStackTrace();} 
+                    %>
+                </ul>
+            </nav>       
         </header>
         <div id="mainContainer">
             <form id="form_buscar" class="container">

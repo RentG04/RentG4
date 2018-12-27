@@ -2,11 +2,9 @@ package servlets;
 
 import bean.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -50,13 +48,13 @@ public class LoginUsuario extends HttpServlet {
                 
                 session.setAttribute("usr", usuario);
                 
-                res.sendRedirect(req.getContextPath() + "/index.jsp");
+                req.getRequestDispatcher("index.jsp").include(req, res);
+                
             }
             else{
                 //Login incorrecto
                 req.setAttribute("errorlogin", "usuario o contraseña incorrectos");
-                RequestDispatcher rds = req.getRequestDispatcher("login.jsp");
-                rds.include(req, res);
+                req.getRequestDispatcher("login.jsp").include(req, res);
             }  
         }catch(Exception e){
             e.printStackTrace();
