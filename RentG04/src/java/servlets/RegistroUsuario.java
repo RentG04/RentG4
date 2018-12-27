@@ -36,9 +36,6 @@ public class RegistroUsuario extends HttpServlet{
         System.out.println("correo: "+correo);
         System.out.println("Dni: "+DNI);
 
-
-        
-        
         try{
             
             String query = "select * from clientes where email= '" + correo + "'" + ";" ;

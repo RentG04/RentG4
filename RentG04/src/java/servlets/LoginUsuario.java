@@ -26,8 +26,12 @@ public class LoginUsuario extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
-        String correo = req.getParameter("Usuario");
-        String contra = req.getParameter("Contraseña");
+        String correo = (String)req.getParameter("Usuario");
+        String contra = (String)req.getParameter("Contrasena");
+        
+        System.out.println(correo);
+        System.out.println(contra);
+        
         
         try{
             PreparedStatement ps = con.prepareStatement("select * from clientes where email=? and password=? ;") ;
