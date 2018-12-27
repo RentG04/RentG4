@@ -13,9 +13,7 @@
             <meta charset="utf-8">
             <title>Mis Reservas</title>
             <link rel="stylesheet" href="styles/styles.css">
-            <link rel="shortcut icon" href="images/icon.ico">
-            <script src="JavaScript/functions.js"></script>
-            
+            <link rel="shortcut icon" href="images/icon.ico">      
     </head>
 
     <body>

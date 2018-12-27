@@ -14,7 +14,6 @@
             <title>VitoRent</title>
             <link rel="stylesheet" href="styles/styles.css">
             <link rel="shortcut icon" href="images/icon.ico">
-            <script src="JavaScript/functions.js"></script>
             <script src="JavaScript/ValidaFecha.js"></script>       
     </head>
     <body>
@@ -22,8 +21,7 @@
         <div id="mainContainer">
             <form id="form_buscar" class="container">
                 <h1>Buscar vehiculo</h1>
-                       
-             
+
                 Lugar de recogida<br>
                 <select name="LugarDeRecogida" id ="lugar_recogida" class="lugar-recogida">
                     <option>Oficina de Vitoria-Gasteiz</option>
@@ -39,8 +37,7 @@
                     <option>Oficina de Bilbao</option>
                     <option>Oficina de Donosti</option>
                 </select>
- 
-               
+
                 Fecha y hora de recogida<br>
                 <input type="datetime-local" id="horarecogida" required>
                     

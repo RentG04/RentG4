@@ -1,9 +1,10 @@
-function validarPerfil(){
+window.onload = function()
+{
     var usuario = document.getElementById("perfUsuario");
     var correo = document.getElementById("perfCorreo");
     var contra = document.getElementById("perfContra");
-    
-    
+
+
     usuario.onchange = function(){
         if(usuario.value.length < 3 || !usuario){
             //alert("Introduzca un usuario válido");
@@ -14,7 +15,7 @@ function validarPerfil(){
             document.getElementById("error-usuariop").innerHTML = "";
         }
     };
-    
+
     correo.onchange = function(){
         if(correo.value.length < 5 || !correo){
             //alert("Introduzca un correo válido");
@@ -25,7 +26,7 @@ function validarPerfil(){
             document.getElementById("error-correop").innerHTML = "";
         }
     };
-    
+
     contra.onchange = function(){
         if(contra.value.length < 8 || !contra){
             //alert("Introduzca una contraseña válida");
@@ -36,8 +37,5 @@ function validarPerfil(){
             document.getElementById("error-contrasenap").innerHTML = "";
         }
     };
-    
-    
-    
 };
 

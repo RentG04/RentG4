@@ -38,8 +38,6 @@ public class LoginUsuario extends HttpServlet {
             
             if(rs.next()){
                 //Login correcto  
-                HttpSession session = req.getSession();
-                
                 Usuario usuario = new Usuario();
                 usuario.setUsuario(rs.getString("usuario"));
                 usuario.setEmail(rs.getString("email"));
@@ -48,17 +46,17 @@ public class LoginUsuario extends HttpServlet {
                 usuario.setDni(rs.getString("dni"));
                 usuario.setTelefono(rs.getString("telefono"));
                 
+                HttpSession session = req.getSession();
                 session.setAttribute("usr", usuario);
                 
-                req.getRequestDispatcher("index.jsp").include(req, res);
-                
+                req.getRequestDispatcher("index.jsp").include(req, res);              
             }
             else{
                 //Login incorrecto
                 req.setAttribute("errorlogin", "usuario o contraseña incorrectos");
                 req.getRequestDispatcher("login.jsp").include(req, res);
             }  
-           
+            rs.close();
         }catch(Exception e){
             e.printStackTrace();
         }

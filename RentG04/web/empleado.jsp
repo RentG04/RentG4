@@ -15,11 +15,9 @@
             <title>VitoRent</title>
             <link rel="stylesheet" href="styles/styles.css">
             <link rel="shortcut icon" href="images/icon.ico">
-            <script src="JavaScript/functions.js"></script>
             <script src="JavaScript/ValidaFecha.js"></script>
             
     </head>
-
     <body>    
         <%= ObtenerCabecera.get(request, "empleado") %>      
         <div id="mainContainer">

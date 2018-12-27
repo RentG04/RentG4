@@ -9,17 +9,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head> 
-        
+    <head>    
         <meta charset="UTF-8">
         <title>Registro</title>
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="shortcut icon" href="images/icon.ico">
         <script src="JavaScript/DragAndDropDNI.js"></script>
         <script src="JavaScript/ValidacionPerfil.js"></script>
-        <script src="JavaScript/functions.js"></script>
-        <script src="JavaScript/DatosPerfil.js"></script>
-        
     </head> 
     <body>
         <header class="main-header" >

@@ -32,31 +32,16 @@ public class RegistroUsuario extends HttpServlet{
         String telefono = (String) req.getParameter("telefono");
 
         try{
-            
-            String query = "select * from clientes where email= '" + correo + "'" + ";" ;
-            st = con.createStatement();
-            rs = st.executeQuery(query);
-            
+            PreparedStatement p = con.prepareStatement("select * from clientes where email=? ;");
+            p.setString(1, correo);
+            ResultSet rs = p.executeQuery();
             if(rs.next()){
                 //El dni ya está en la base de datos
-                System.out.println("El email ya está en la bd");
-                st.close();
-                rs.close();
-                //Login incorrecto
-                req.setAttribute("errorlogin", "El email con el que intenta registrarse ya esta en uso");
-                RequestDispatcher rds = req.getRequestDispatcher("registro.jsp");
-                rds.include(req, res);
-            
+                req.setAttribute("errorregistro", "El email con el que intenta registrarse ya esta en uso");
+                req.getRequestDispatcher("registro.jsp").include(req, res);     
             }
             else
             {
-                /*
-                String query1 = "insert into clientes(DNI, usuario, email, password) values ('" + DNI + "','" + usuario + "'," + correo + "," + contra + ") ;" ;
-                st = con.createStatement();
-                st.executeUpdate(query1);
-                st.close();
-                */
-                
                 PreparedStatement ps = con.prepareStatement("insert into clientes(DNI, usuario, email, password, telefono, imagen) values (?,?,?,?,?,?) ;" );
                 ps.setString(1, DNI);
                 ps.setString(2, usuario);
@@ -65,13 +50,10 @@ public class RegistroUsuario extends HttpServlet{
                 ps.setString(5, telefono);
                 ps.setString(6, "");
                 ps.executeUpdate();
-                System.out.println("Usuario introducido");
                 
-                RequestDispatcher rqs = req.getRequestDispatcher("index.jsp");
-                rqs.include(req, res);
-
+                req.getRequestDispatcher("index.jsp").include(req, res);  
             }
-            
+            rs.close();
         }catch (Exception e){
             e.printStackTrace();
         }

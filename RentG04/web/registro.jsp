@@ -18,12 +18,14 @@
         <script src="JavaScript/ValidacionRegistro.js"></script>  
     </head> 
     <body>
-        <%= ObtenerCabecera.get(request, "registro") %>      
+        <%= ObtenerCabecera.get(request, "registro") %>  
+        
         <%
-                String error = "";
-                if (null != request.getAttribute("errorlogin")) {
-                       error = (String) request.getAttribute("errorlogin");
-                   }%>
+            String error = "";
+            if (null != request.getAttribute("errorregistro")) {
+                   error = (String) request.getAttribute("errorregistro");
+               }
+        %>
         <form id="form_registro" class="container" action="RegistroUsuario" ondragover="prevDef()" method="post">
             <h1>Registro</h1>
             

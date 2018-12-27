@@ -12,7 +12,6 @@
         <title>Login</title>
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="shortcut icon" href="images/icon.ico">
-        <script src="JavaScript/functions.js"></script>
     </head>
     <body>
         <%= ObtenerCabecera.get(request, "login") %>
