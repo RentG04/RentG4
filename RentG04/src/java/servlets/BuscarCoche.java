@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import bean.Busqueda;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -40,9 +41,17 @@ private Connection con;
         
         HttpSession s = req.getSession(true);
         
-
+        Busqueda b = new Busqueda();
+        b.setLugarRecogida(req.getParameter("LugarDeRecogida"));
+        b.setLugarDevolucion(req.getParameter("LugarDeEntrega"));
+        b.setFechaRecogida(req.getParameter("FechaRecogida"));
+        b.setFechaDevolucion(req.getParameter("FechaDevolucion"));
+        b.setGamaVehiculo(req.getParameter("GamaVehiculo"));
         
-        
+        System.out.println(b.getFechaDevolucion());
+        System.out.println(b.getGamaVehiculo());
+        System.out.println(b.getLugarDevolucion());
+        s.setAttribute("Busqueda", b);
         req.getRequestDispatcher("buscarCoche.jsp").forward(req, res);
     }
 

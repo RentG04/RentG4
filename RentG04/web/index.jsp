@@ -14,7 +14,7 @@
             <title>VitoRent</title>
             <link rel="stylesheet" href="styles/styles.css">
             <link rel="shortcut icon" href="images/icon.ico">
-            <!--<script src="JavaScript/ValidaFecha.js"></script>-->       
+            <script src="JavaScript/ValidacionBusqueda.js"></script>
     </head>
     <body>
         <%= ObtenerCabecera.get(request, "index") %>
@@ -39,13 +39,14 @@
                 </select>
 
                 Fecha y hora de recogida<br>
-                <input type="datetime-local" id="horarecogida">
+                <input type="datetime-local" id="horarecogida" name="FechaRecogida" required>
                     
                 Fecha y hora de entrega<br>
-                <input type="datetime-local" id="horaentrega"> 
+                <input type="datetime-local" id="horaentrega" name="FechaDevolucion" required> 
                 
                 Gama del vehiculo<br>
-                <select name="gama_vehiculo">
+                <select name="GamaVehiculo">
+                    <option>Todas</option>
                     <option>Baja</option>
                     <option>Media</option>
                     <option>Alta</option>

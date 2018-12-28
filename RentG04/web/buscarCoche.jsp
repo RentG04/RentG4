@@ -16,7 +16,7 @@
             <title>VitoRent</title>
             <link rel="stylesheet" href="styles/styles.css">
             <link rel="shortcut icon" href="images/icon.ico">
-                 
+            <script src="JavaScript/functions.js"></script> 
     </head>
     <body>
         <%= ObtenerCabecera.get(request, "index") %>
@@ -26,52 +26,62 @@
             <br>
             <br>
             <h1>Búsqueda de coches</h1>
+           
             <form id="formReservaCoche" action ="ReservaCoche" method="post">
-            <table id="tablaCoches">
-                
-            <tr><td><b>Matrícula</b></td><td><b>Marca</b></td><td><b>Gama</b></td><td><b>Precio por día</b></td><td><b>Imagen</b></td><td><b>Reservar</b></td></tr>
+                <input type="hidden" name="coche" id="coche" value=""> 
+                <table id="tablaCoches">
 
-            <%!
-                private Connection con;
-                private Statement set;
-                private ResultSet rs;
+                <tr><td><b>Matrícula</b></td><td><b>Marca</b></td><td><b>Gama</b></td><td><b>Precio por día</b></td><td><b>Imagen</b></td><td><b>Reservar</b></td></tr>
 
-                public void jspInit() {
-                    con = utils.BD.getConexion();
-                };
-                          
-            %>
-            <%
-                try {
-                    String matrícula, marca, gama, imagen;
-                    int preciodia;
-                    set = con.createStatement();
-                    rs = set.executeQuery("SELECT * FROM coches");
-                    while (rs.next()) {
-                        matrícula = rs.getString("matricula");
-                        marca = rs.getString("modelo");
-                        gama = rs.getString("gama");
-                        imagen = rs.getString("imagen");
-                        preciodia = rs.getInt("preciodia");
-            %>                         
-            <tr><td><%=matrícula%></td>
-                <td><%=marca%></td>
-                <td><%=gama%></td>
-                <td><%=preciodia%> €</td>
-                <td id="image"><img src="<%=imagen%>" alt="" height=400 width=300></td>
-                <td id="res"><input type="submit" value="reservar" class="button"  id="button<%=matrícula%>"></input></td></tr>
-                <%
-                        }
-                        rs.close();
-                        set.close();
-                        //con.close();
-                    } catch (Exception ex) {
-                        System.out.println("Error en acceso a BD coches" + ex);
-                    }
+                <%!
+                    private Connection con;
+                    private Statement set;
+                    private ResultSet rs;
+
+                    public void jspInit() {
+                        con = utils.BD.getConexion();
+                    };
+
                 %>
-        </table>
-            </form>
+                <%
 
+                    try {
+                        String matrícula, marca, gama, imagen;
+                        int preciodia;
+                        set = con.createStatement();
+                        String g = ((bean.Busqueda)request.getSession().getAttribute("Busqueda")).getGamaVehiculo();
+                        if(!g.equals("Todas"))
+                        {
+                            rs = set.executeQuery("SELECT * FROM coches where gama='"+g+"';");
+                        }
+                        else{
+                            rs = set.executeQuery("SELECT * FROM coches;");
+                        }
+                        while (rs.next()) {
+                            matrícula = rs.getString("matricula");
+                            marca = rs.getString("modelo");
+                            gama = rs.getString("gama");
+                            imagen = rs.getString("imagen");
+                            preciodia = rs.getInt("preciodia");
+
+                %>                         
+                <tr><td><%=matrícula%></td>
+                    <td><%=marca%></td>
+                    <td><%=gama%></td>
+                    <td><%=preciodia%> €</td>
+                    <td id="image"><img src="<%=imagen%>" alt="" height=400 width=300></td>
+                    <td id="res"><input type="submit" value="reservar" class="button"  id="<%=matrícula%>" onclick="setCar(this.id)"></input></td></tr>
+                    <%
+                            }
+                            rs.close();
+                            set.close();
+                            //con.close();
+                        } catch (Exception ex) {
+                            System.out.println("Error en acceso a BD coches" + ex);
+                        }
+                    %>
+                </table>
+             </form>
     </body>
 </html>
 
