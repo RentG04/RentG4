@@ -12,6 +12,14 @@
         <servlet-name>ActualizarDatos</servlet-name>
         <servlet-class>servlets.ActualizarDatos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscarCoche</servlet-name>
+        <servlet-class>servlets.BuscarCoche</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReservaCoche</servlet-name>
+        <servlet-class>servlets.ReservaCoche</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistroUsuario</servlet-name>
         <url-pattern>/RegistroUsuario</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>LoginOficinista</servlet-name>
         <url-pattern>/LoginOficinista</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarCoche</servlet-name>
+        <url-pattern>/BuscarCoche</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReservaCoche</servlet-name>
+        <url-pattern>/ReservaCoche</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

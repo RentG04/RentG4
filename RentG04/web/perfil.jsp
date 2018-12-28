@@ -55,8 +55,7 @@
             <input readonly type="text" name="Dni" value="${usr.dni}" size="25" id="perfDNI" pattern="[0-9]{8}[A-Za-z]{1}" />   
             <br>
             <div class="error" id="error-dnip"></div>
-            <br>
-            Telefono<br>
+            Teléfono<br>
             <input type="text" name="Telefono" class="textbox" value="${usr.telefono}" pattern="[0-9]{9}" size="25" id="perfTelefono"/>
             <br>
             <div class="error" id="error-usuariop"></div>

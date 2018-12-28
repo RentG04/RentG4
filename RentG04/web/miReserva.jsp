@@ -19,6 +19,7 @@
     <body>
         <%= ObtenerCabecera.get(request, "miReserva") %>
         
+        
     </body>
 </html>
 

@@ -14,12 +14,12 @@
             <title>VitoRent</title>
             <link rel="stylesheet" href="styles/styles.css">
             <link rel="shortcut icon" href="images/icon.ico">
-            <script src="JavaScript/ValidaFecha.js"></script>       
+            <!--<script src="JavaScript/ValidaFecha.js"></script>-->       
     </head>
     <body>
         <%= ObtenerCabecera.get(request, "index") %>
         <div id="mainContainer">
-            <form id="form_buscar" class="container">
+            <form id="form_buscar" class="container" action="BuscarCoche" method="post">
                 <h1>Buscar vehiculo</h1>
 
                 Lugar de recogida<br>
@@ -39,10 +39,10 @@
                 </select>
 
                 Fecha y hora de recogida<br>
-                <input type="datetime-local" id="horarecogida" required>
+                <input type="datetime-local" id="horarecogida">
                     
                 Fecha y hora de entrega<br>
-                <input type="datetime-local" id="horaentrega"  required> 
+                <input type="datetime-local" id="horaentrega"> 
                 
                 Gama del vehiculo<br>
                 <select name="gama_vehiculo">
@@ -51,7 +51,7 @@
                     <option>Alta</option>
                 </select>
                 
-                <button class="button" type="button"  value="buscar">Buscar</button>
+                <button class="button" type="submit"  value="buscar">Buscar</button>
             </form>
         </div>
     </body>

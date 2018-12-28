@@ -33,7 +33,7 @@
             <input type="submit" class = "button" onclick="comprobar()" value="Login" />
             <input type="button" class="button" value="Registrarse" onclick="location.href = 'registro.jsp'"/>
             
-            <a href="loginEmpleado.jsp">Soy empleado</a>
+            <a href="loginEmpleado.jsp" id="soyEmpleado">Soy empleado</a>
             <div id="error-login"><h2><%=error%></h2></div> 
             
             <!--Comprobar si el correo existe en la base de datos, y la contrasña también-->
