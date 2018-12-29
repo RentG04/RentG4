@@ -26,6 +26,28 @@ window.onload = function()
         sec='0'+sec;
     }
     today = yyyy+'-'+mm+'-'+dd+'T'+hour+':'+min+':'+sec;
+//    if(dd==30 && (mm==04 || mm==06 || mm==09 || mm==11)){
+//        dd=01;
+//        mm=mm+1;
+//    }else if(dd==31 && (mm==01 || mm==03 || mm==05 || mm==07 || mm==08 || mm==10 || mm==12)){
+//        if(mm==12){
+//            yyyy = yyyy+1;
+//            mm= 01;
+//            dd=01;
+//        }else{
+//            dd=01;
+//            mm=mm+1;
+//        }
+//    }else if(dd==28 && mm==02){
+//        dd=01;
+//        mm=03;
+//    }else{
+//        dd=dd+1
+//    }
+//    
+//    
+//    entrega = yyyy+'-'+mm+'-'+dd+'T'+hour+':'+min+':'+sec;
+        
 
     recogida.min = today;
     devolucion.min = today;
