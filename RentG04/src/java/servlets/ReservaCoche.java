@@ -44,6 +44,7 @@ public class ReservaCoche extends HttpServlet {
         }else{
             bean.Reserva r = new bean.Reserva();
             String matricula = (String) req.getParameter("coche");
+            System.out.println("matricula: " + matricula);
             bean.Usuario usr = (bean.Usuario)(s.getAttribute("usr"));
             
             String email = usr.getEmail();

@@ -45,12 +45,12 @@ private Connection con;
         b.setLugarRecogida(req.getParameter("LugarDeRecogida"));
         b.setLugarDevolucion(req.getParameter("LugarDeEntrega"));
         b.setFechaRecogida(req.getParameter("FechaRecogida"));
-        b.setFechaDevolucion(req.getParameter("FechaDevolucion"));
+        b.setFechaDevolucion((String)req.getParameter("FechaDevolucion"));
         b.setGamaVehiculo(req.getParameter("GamaVehiculo"));
         
-        System.out.println(b.getFechaDevolucion());
-        System.out.println(b.getGamaVehiculo());
-        System.out.println(b.getLugarDevolucion());
+        System.out.println("Fecha devolucion " + b.getFechaDevolucion());
+        System.out.println("Gama " + b.getGamaVehiculo());
+        System.out.println("LugarDev "+b.getLugarDevolucion());
         s.setAttribute("Busqueda", b);
         req.getRequestDispatcher("buscarCoche.jsp").forward(req, res);
     }
