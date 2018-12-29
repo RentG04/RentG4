@@ -21,10 +21,10 @@
     <body>    
         <%= ObtenerCabecera.get(request, "empleado") %>      
         <div id="mainContainer">
-            <form id="form_buscar" class="container">
+            <form id="form_buscar" class="container" action="reservasEmpleado" method="post">
                 <h1>Buscar Reserva</h1>
                 
-                <button class="button" type="button"  value="buscar">Buscar</button>
+                <button class="button" type="submit"  value="buscar">Buscar</button>
             </form>
         </div>
     </body>

@@ -15,7 +15,21 @@ import javax.servlet.http.HttpSession;
  */
 public class ObtenerCabecera {
     public static String get(HttpServletRequest request, String type){
-        String str="";
+         String str="";
+        if(type.equals("empleado")){
+            str += " <header class='main-header'>";
+            str += "    <a'>";
+            str += "        <img alt='logo' src='images/logoTrans.png' width='100'/>";
+            str += "        <img alt='logo1' class='logo1' id='logo1' src='images/logoTrans2.png' width='200'>";
+            str += "    </a>";    
+            str += "    <nav>";
+            str += "        <ul id='botones'>";
+            str+= "                        <li><a href='Logout' ><button type='button' class='button' value='logout'>Logout</button></a></li>";
+
+            str += "        </ul>";
+            str += "    </nav>";
+        }else{
+       
         str += " <header class='main-header'>";
         str += "    <a href='index.jsp'>";
         str += "        <img alt='logo' src='images/logoTrans.png' width='100'/>";
@@ -23,7 +37,7 @@ public class ObtenerCabecera {
         str += "    </a>";           
         str += "    <nav>";
         str += "        <ul id='botones'>";
-        if(type.equals("index") || type.equals("empleado") || type.equals("miReserva") || type.equals("perfil")){
+        if(type.equals("index") || type.equals("miReserva") || type.equals("perfil")){
             HttpSession s = request.getSession();
             try{
                 Usuario u = (Usuario)s.getAttribute("usr");
@@ -53,6 +67,9 @@ public class ObtenerCabecera {
         str +="         </ul>";
         str +="     </nav>";
         str +="</header>";
+        
+        
+    }
         
         return str;
     }
