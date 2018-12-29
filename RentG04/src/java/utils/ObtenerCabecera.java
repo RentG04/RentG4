@@ -40,15 +40,26 @@ public class ObtenerCabecera {
         if(type.equals("index") || type.equals("miReserva") || type.equals("perfil")){
             HttpSession s = request.getSession();
             try{
-                Usuario u = (Usuario)s.getAttribute("usr");
-                if(u==null){
+                Object o = s.getAttribute("usr");
+                if(o==null){
                     str+= "                        <li><button type='button' class='button' value='login' onclick='location.href=\"login.jsp\"'>Login</button></li>";
                     str+= "                        <li><button type='button' class='button' value='registro' onclick='location.href=\"registro.jsp\"'>Registro</button></li>";
-                }else{
-                    str+= "                        <li><button type='button' class='button' value='perfil' onclick='location.href=\"perfil.jsp\"'>Bienvenido <strong>"+u.getUsuario()+"</strong></button></li>";
-                    str+= "                        <img src='"+u.getFoto()+"' width='45px' align='center'>";
-                    str+= "                        <li><button type='button' class='button' value='perfil' onclick='location.href=\"miReserva.jsp\"'>Mis reservas</button></li>";
-                    str+= "                        <li><a href='Logout' ><button type='button' class='button' value='logout'>Logout</button></a></li>";
+                }
+                else{
+                    if(o instanceof Usuario){
+                        Usuario u = (Usuario)o;
+                        str+= "                        <li><button type='button' class='button' value='perfil' onclick='location.href=\"perfil.jsp\"'>Bienvenido <strong>"+u.getUsuario()+"</strong></button></li>";
+                        str+= "                        <img src='"+u.getFoto()+"' width='45px' align='center'>";
+                        str+= "                        <li><button type='button' class='button' value='perfil' onclick='location.href=\"miReserva.jsp\"'>Mis reservas</button></li>";
+                        str+= "                        <li><a href='Logout' ><button type='button' class='button' value='logout'>Logout</button></a></li>";
+                    
+                    }else {
+                        //bean.Empleado u = (bean.Empleado)o;
+                        str+= "                        <li><a href='Logout' ><button type='button' class='button' value='logout'>Logout</button></a></li>";
+                    
+                    }
+                    
+                    
                 }
             }
             catch(Exception e){

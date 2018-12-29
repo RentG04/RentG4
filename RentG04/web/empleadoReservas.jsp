@@ -39,8 +39,15 @@
                         String matrícula, fechaini, fechafin;
                         float precio;
                         set = con.createStatement();
-                        String e = ((bean.Usuario)request.getSession().getAttribute("usr")).getEmail();
-                        rs = set.executeQuery("SELECT * FROM reservas;");
+                        String e = ((String)request.getSession().getAttribute("email"));
+                        String sql;
+                        if(e.equals("todas")){
+                            sql="SELECT * FROM reservas";
+                        }else{
+                            sql="SELECT * FROM reservas WHERE email='"+e+"'";
+                        }
+                        
+                        rs = set.executeQuery(sql);
                         while (rs.next()) {
                             matrícula = rs.getString("matricula");
                             fechaini = rs.getString("fechaIni");

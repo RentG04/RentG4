@@ -48,6 +48,14 @@
         <servlet-name>ReservaCoche</servlet-name>
         <url-pattern>/ReservaCoche</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ReservasEmpleado</servlet-name>
+        <servlet-class>servlets.ReservasEmpleado</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReservasEmpleado</servlet-name>
+        <url-pattern>/ReservasEmpleado</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

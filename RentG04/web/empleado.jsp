@@ -3,6 +3,8 @@
     Created on : 18-dic-2018, 16:09:30
     Author     : Iker Lopez
 --%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page import="utils.ObtenerCabecera"%>
 <%@page import="bean.Empleado"%>
 <%@page import="bean.Usuario"%>
@@ -21,9 +23,36 @@
     <body>    
         <%= ObtenerCabecera.get(request, "empleado") %>      
         <div id="mainContainer">
-            <form id="form_buscar" class="container" action="reservasEmpleado" method="post">
+            <form id="form_buscar" class="container" action="ReservasEmpleado" method="post">
                 <h1>Buscar Reserva</h1>
-                
+                <%!
+                    private Connection con;
+
+                    public void jspInit() {
+                        con = utils.BD.getConexion();
+                    };
+                %>
+                <select name="email">
+                    <option value="todas">Todas las reservas</option>
+                <%
+                    try {
+                        
+                        Statement st = con.createStatement();
+                        //String s = ((bean.Usuario)request.getSession().getAttribute("usr")).getEmail();
+                        ResultSet rs = st.executeQuery("SELECT * FROM clientes;");
+                        String email;
+                        while (rs.next()) {
+                            email = rs.getString("email");
+                            
+                            %>
+                            <option value="<%=email%>"><%=email%></option>
+                            <% 
+                        }
+                    }catch(Exception e){
+                        
+                    }
+                %>
+                </select>
                 <button class="button" type="submit"  value="buscar">Buscar</button>
             </form>
         </div>
