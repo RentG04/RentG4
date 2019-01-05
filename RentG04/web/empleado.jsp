@@ -18,42 +18,25 @@
             <link rel="stylesheet" href="styles/styles.css">
             <link rel="shortcut icon" href="images/icon.ico">
             <script src="JavaScript/ValidaFecha.js"></script>
+            <script src="JavaScript/ComprobarBusqueda.js"></script>
             
     </head>
     <body>    
         <%= ObtenerCabecera.get(request, "empleado") %>      
         <div id="mainContainer">
-            <form id="form_buscar" class="container" action="ReservasEmpleado" method="post">
+            <form id="form_buscar" onsubmit="return comprobar()" class="container" action="ReservasEmpleado" method="post">
                 <h1>Buscar Reserva</h1>
-                <%!
-                    private Connection con;
+                Email Cliente <br>
+                <input type="text" name="EmailRes" class="textbox" value="" size="25" id="EmailRes"/>
 
-                    public void jspInit() {
-                        con = utils.BD.getConexion();
-                    };
-                %>
-                <select name="email">
-                    <option value="todas">Todas las reservas</option>
-                <%
-                    try {
-                        
-                        Statement st = con.createStatement();
-                        //String s = ((bean.Usuario)request.getSession().getAttribute("usr")).getEmail();
-                        ResultSet rs = st.executeQuery("SELECT * FROM clientes;");
-                        String email;
-                        while (rs.next()) {
-                            email = rs.getString("email");
-                            
-                            %>
-                            <option value="<%=email%>"><%=email%></option>
-                            <% 
-                        }
-                    }catch(Exception e){
-                        
-                    }
-                %>
-                </select>
-                <button class="button" type="submit"  value="buscar">Buscar</button>
+                Matrícula Coche <br>
+                <input type="text" name="matrRes" class="textbox" value="" size="25" id="matrRes"/>
+                Fecha y hora de recogida<br>
+                <input type="datetime-local" id="horarecogidaRes" name="FechaRecogida">
+                    
+                Fecha y hora de entrega<br>
+                <input type="datetime-local" id="horaentregaRes" name="FechaDevolucion"> 
+                <button class="button" type="submit" id="bus" value="buscar">Buscar</button>
             </form>
         </div>
     </body>
