@@ -4,6 +4,8 @@
     Author     : Iker Lopez
 --%>
 
+<%@page import="sun.security.pkcs11.wrapper.Functions"%>
+<%@page import="bean.Busqueda"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>

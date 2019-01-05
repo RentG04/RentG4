@@ -7,3 +7,17 @@ function setCar(matricula){
     document.getElementById("coche").value=matricula;
 }
 
+function diferenciaFechas(entrega, devolucion){
+    var fecha1 = new Date(entrega);
+    var fecha2 = new Date(devolucion);
+    
+    var milis1 = fecha1.getTime();
+    var milis2 = fecha2.getTime();
+    
+    var diferencia = milis2 - milis1;
+    
+    var horas = (diferencia / (1000 * 60 * 60)).toFixed(1);
+    alert("Horas: " + horas);
+    return horas;
+}
+
