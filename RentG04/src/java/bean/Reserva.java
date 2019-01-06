@@ -5,6 +5,8 @@
  */
 package bean;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author Iker Lopez
@@ -66,7 +68,26 @@ public class Reserva {
         return precio;
     }   
     
-    public void calcularPrecio(){
+    public boolean calcularPrecio(int precioDia){
         //Aqui calculamos el precio y lo guardamos en la variable precio
+        
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+ 
+        try
+        {
+            Date fechaInicial=dateFormat.parse(fechaInicio);
+            Date fechaFinal=dateFormat.parse(fechaFin);
+
+            float dias= (((float)(fechaFinal.getTime()-fechaInicial.getTime()))/86400000);
+            float p = precioDia*dias;
+            System.out.println("dias ------> "+dias);
+            precio = Float.toString(p);
+            return true;
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        
     }
 }

@@ -1,3 +1,4 @@
+<%@page import="bean.BusquedaReserva"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -21,7 +22,7 @@
             <h1>Reservas</h1>
         <table id="tablaCoches">
 
-                <tr><td><b>Matrícula</b></td><td><b>Fecha inicio</b></td><td><b>Fecha fin</b></td><td><b>Precio</b></td></tr>
+                <tr><td><b>Matrícula</b></td><td><b>Fecha inicio</b></td><td><b>Fecha fin</b></td><td><b>Precio</b></td><td><b>Usuario</b></td></tr>
 
                 <%!
                     private Connection con;
@@ -39,12 +40,21 @@
                         String matrícula, fechaini, fechafin;
                         float precio;
                         set = con.createStatement();
-                        String e = ((String)request.getSession().getAttribute("email"));
+                        int num = ((bean.BusquedaReserva)request.getSession().getAttribute("BusquedaReserva")).getCampo();
+                        String email, matricula, fecha1, fecha2;
+                        email = ((bean.BusquedaReserva)request.getSession().getAttribute("BusquedaReserva")).getEmail();
+                        matricula = ((bean.BusquedaReserva)request.getSession().getAttribute("BusquedaReserva")).getMatricula();
+                        fecha1 = ((bean.BusquedaReserva)request.getSession().getAttribute("BusquedaReserva")).getFechaRecogida();
+                        fecha2 = ((bean.BusquedaReserva)request.getSession().getAttribute("BusquedaReserva")).getFechaDevolucion();
                         String sql;
-                        if(e.equals("todas")){
-                            sql="SELECT * FROM reservas";
+                        if(num == 1){
+                            sql="SELECT * FROM reservas WHERE email='"+email+"'";
+                        }else if(num == 2){
+                            sql="SELECT * FROM reservas WHERE matricula='"+matricula+"'";
+                        }else if(num == 3){
+                            sql="SELECT * FROM reservas WHERE fechaIni='"+fecha1+"'";
                         }else{
-                            sql="SELECT * FROM reservas WHERE email='"+e+"'";
+                            sql="SELECT * FROM reservas WHERE fechaFin='"+fecha2+"'";
                         }
                         
                         rs = set.executeQuery(sql);
@@ -53,12 +63,14 @@
                             fechaini = rs.getString("fechaIni");
                             fechafin = rs.getString("fechaFin");
                             precio = rs.getFloat("precio");
+                            email = rs.getString("email");
 
                 %>                         
                 <tr><td><%=matrícula%></td>
                     <td><%=fechaini%></td>
                     <td><%=fechafin%></td>
                     <td><%=precio%> €</td>
+                    <td><%=email%> €</td>
                     </tr>
                     <%
                             }
