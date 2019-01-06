@@ -52,17 +52,27 @@ public class ReservaCoche extends HttpServlet {
             
             r.setEmail(email);
             r.setMatricula(matricula);
+            int precioDia=20;
+            try{
+                PreparedStatement ps1 = con.prepareStatement("SELECT preciodia FROM coches WHERE matricula=?");
+                ps1.setString(1, matricula);
+                ResultSet rs1 = ps1.executeQuery();
+                if(rs1.next()){
+                    precioDia = rs1.getInt("preciodia");
+                }
+            }catch(Exception e){}
             r.setFechaInicio(b.getFechaRecogida());
             r.setFechaFin(b.getFechaDevolucion());
             //r.setExtras("");//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            r.calcularPrecio();//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            r.calcularPrecio(precioDia);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            System.out.println("PRECIO  ------------>"+r.getPrecio());
             try{
             PreparedStatement ps = con.prepareStatement("INSERT INTO reservas(email, matricula, fechaIni, fechaFin, precio, extras) values (?,?,?,?,?,?);");
             ps.setString(1, r.getEmail());
             ps.setString(2, r.getMatricula());
             ps.setString(3, r.getFechaInicio());
             ps.setString(4, r.getFechaFin());
-            ps.setFloat(5, 0.0f);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            ps.setFloat(5, Float.parseFloat(r.getPrecio()));//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             ps.setFloat(6, 0.0f);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             
             ps.executeUpdate();
