@@ -26,15 +26,15 @@
                    error = (String) request.getAttribute("errorregistro");
                }
         %>
-        <form id="form_registro" class="container" action="RegistroUsuario" ondragover="prevDef()" method="post">
+        <form id="form_registro" class="container" action="RegistroUsuario" ondragover="prevDef()" method="post" enctype="multipart/form-data">
             <h1>Registro</h1>
-            
-            <label id="dnibox" type="file" name="dniBox" dropzone="" ondragover="drover()" ondragleave="drleave()">
+            <label id="dnibox" type="file" name="arch" dropzone="" ondragover="drover()" ondragleave="drleave()">
                 <span id="fileLabelText">
                     <br>
                     Arrastre y suelte su foto aquí.
                 </span>
             </label>
+            <input type="file" name="Archivo" id="regArchivo" value="" onchange="" class="btn" />
             <br>
             Usuario*<br>
             <input type="text" name="Usuario" class="textbox" value="" pattern="[A-Za-z]{3,}" size="25" id="regUsuario" required />

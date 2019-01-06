@@ -9,7 +9,7 @@ window.addEventListener('load', inicio, false);
     }
     
     function drop(ev){
-        
+         alert("drop");
         ev.preventDefault();
         var fileR= new FileReader();
         fileR.addEventListener('load',leer,false);
@@ -25,6 +25,7 @@ window.addEventListener('load', inicio, false);
     
     function leer(ev)
     {
+        alert("leer");
         document.getElementById('dnibox').style.backgroundImage="url('" + ev.target.result + "')";
         document.getElementById('dnibox').style.border="0px dashed gray"
         document.getElementById("dnibox").style.boxShadow="0 0 0 orange";
@@ -32,10 +33,11 @@ window.addEventListener('load', inicio, false);
     }
     
     function drover(){
-      
+       alert("drover");
       document.getElementById("dnibox").style.boxShadow="0 0 16px orange";  
     }
     function drleave(){
       
+      alert("drleave");
       document.getElementById("dnibox").style.boxShadow="0 0 0 orange";  
     }

@@ -1,6 +1,7 @@
 package servlets;
 
 import bean.Usuario;
+import com.mysql.jdbc.Blob;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import utils.BD;
 import javax.servlet.http.HttpSession;
+import org.apache.tomcat.util.codec.binary.Base64;
+import utils.ImagenUsuario;
 
 @WebServlet(name = "LoginUsuario", urlPatterns = {"/LoginUsuario"})
 public class LoginUsuario extends HttpServlet {
@@ -39,16 +42,22 @@ public class LoginUsuario extends HttpServlet {
             if(rs.next()){
                 //Login correcto  
                 Usuario usuario = new Usuario();
+                ImagenUsuario foto = new ImagenUsuario();
+                
                 usuario.setUsuario(rs.getString("usuario"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setContraseña(rs.getString("password"));
-                usuario.setFoto(rs.getString("imagen"));
                 usuario.setDni(rs.getString("dni"));
                 usuario.setTelefono(rs.getString("telefono"));
                 
+                foto.setArchivoimg2((Blob) rs.getBlob("imagen"));
+//              foto.setArchivoimg(rs.getBinaryStream("imagen"));
+                foto.setNombreimg(usuario.getUsuario());
+                foto.BlobFile();
+                usuario.setFoto(foto);
+                Thread.sleep(1500);
                 HttpSession session = req.getSession();
                 session.setAttribute("usr", usuario);
-                
                 req.getRequestDispatcher("index.jsp").include(req, res);              
             }
             else{

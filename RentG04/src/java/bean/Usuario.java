@@ -5,6 +5,8 @@
  */
 package bean;
 
+import utils.ImagenUsuario;
+
 /**
  *
  * @author unigo
@@ -13,7 +15,7 @@ public class Usuario {
     private String usuario;
     private String email;
     private String contraseña;
-    private String foto;
+    private ImagenUsuario foto;
     private String dni;
     private String telefono;
     
@@ -42,7 +44,7 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(ImagenUsuario foto) {
         this.foto = foto;
     }
 
@@ -58,7 +60,7 @@ public class Usuario {
         return contraseña;
     }
 
-    public String getFoto() {
+    public ImagenUsuario getFoto() {
         return foto;
     }
     
