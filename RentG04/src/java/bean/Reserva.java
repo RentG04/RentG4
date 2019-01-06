@@ -78,9 +78,10 @@ public class Reserva {
             Date fechaInicial=dateFormat.parse(fechaInicio);
             Date fechaFinal=dateFormat.parse(fechaFin);
 
-            double dias=(double) ((fechaFinal.getTime()-fechaInicial.getTime())/86400000);
-            double p = precioDia*dias;
-            precio = Double.toString(p);
+            float dias= (((float)(fechaFinal.getTime()-fechaInicial.getTime()))/86400000);
+            float p = precioDia*dias;
+            System.out.println("dias ------> "+dias);
+            precio = Float.toString(p);
             return true;
             
         }catch(Exception e){
