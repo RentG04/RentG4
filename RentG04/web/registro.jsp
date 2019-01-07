@@ -19,6 +19,7 @@
         <script src="JavaScript/ValidacionRegistro.js"></script>  
     </head> 
     <body>
+        
         <%= ObtenerCabecera.get(request, "registro") %>  
         
         <%

@@ -92,7 +92,7 @@ public class ImagenUsuario {
             //System.out.println(getClass().getClassLoader().getResource(""));  //file:/C:/Users/WhiteWolf/Documents/NetBeansProjects/2VitoRent/RentG4/RentG04/build/web/WEB-INF/classes/
             //System.out.println(new File("").getAbsolutePath()); //C:\Program Files\Apache Software Foundation\Apache Tomcat 8.0.27\bin
             //System.out.println(getClass().getResource("/images/Coche.jpg")); //file:/C:/Users/WhiteWolf/Documents/NetBeansProjects/2VitoRent/RentG4/RentG04/build/web/WEB-INF/classes/utils/
-            //System.out.println(pth); //C:\Users\WhiteWolf\Documents\NetBeansProjects\2VitoRent\RentG4\RentG04\build\web\images/users
+            System.out.println(pth); //C:\Users\WhiteWolf\Documents\NetBeansProjects\2VitoRent\RentG4\RentG04\build\web\images/users
             try {
                 img = File.createTempFile(nombreimg+"-",".png",new File(pth));
                 setPath();
