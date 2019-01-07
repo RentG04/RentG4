@@ -37,6 +37,7 @@ public class LoginUsuario extends HttpServlet {
             ps.setString(2, contra);
             
             ResultSet rs =ps.executeQuery();
+            req.setAttribute("error-cancelar", "");
             
             if(rs.next()){
                 //Login correcto  
@@ -61,6 +62,7 @@ public class LoginUsuario extends HttpServlet {
             }
             else{
                 //Login incorrecto
+                
                 req.setAttribute("errorlogin", "usuario o contraseña incorrectos");
                 req.getRequestDispatcher("login.jsp").include(req, res);
             }  

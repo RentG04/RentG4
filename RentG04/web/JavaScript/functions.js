@@ -26,8 +26,9 @@ function fechaNoValida(){
     return false;
 }
 
-function cancelarReserva(){
-    alert("Reserva cancelada");
+function cancelarReserva(idReserva){
+    document.getElementById("idReserva").value = idReserva;
+    
     return true;
 }
 

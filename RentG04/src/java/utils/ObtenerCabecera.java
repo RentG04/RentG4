@@ -55,11 +55,11 @@ public class ObtenerCabecera {
                         //File file = new File(path);
                         //System.out.println(u.getFoto().getPath());
                         //String fotoV = u.getFoto().getPath();
-                        //System.out.println("final " +u.getFoto().getPath());
+                        System.out.println("final " +u.getFoto().getPath());
                         str+= "                        <li><button type='button' class='button' value='perfil' onclick='location.href=\"perfil.jsp\"'>Bienvenido <strong>"+u.getUsuario()+"</strong></button></li>";
                         str+= "                        <img src='"+u.getFoto().getPath()+"' width='45px' align='center'/>";
                         str+= "                        <li><button type='button' class='button' value='perfil' onclick='location.href=\"miReserva.jsp\"'>Mis reservas</button></li>";
-                        str+= "                        <li><a href='Logout' ><button type='button' class='button' onclick='u.getFoto().deleteImg()' value='logout'>Logout</button></a></li>";
+                        str+= "                        <li><a href='Logout' ><button type='button' class='button' value='logout'>Logout</button></a></li>";
                     
                     }else {
                         
