@@ -28,7 +28,14 @@
             <br>
             <h1>Mis reservas</h1>
         <table id="tablaCoches">
-            
+            <center>
+                <%if(request.getAttribute("error-cancelar")==null){
+                    request.setAttribute("error-cancelar", "");
+                }%>
+            <div id="error-cancelada"><%= request.getAttribute("error-cancelar")%></div>
+            </center>
+            <form id="formCancelarReserva" action ="CancelarReserva" method="post">
+                <input type="hidden" name="idReserva" id="idReserva" value=""> 
                 <tr><td><b>Matrícula</b></td><td><b>Fecha inicio</b></td><td><b>Fecha fin</b></td><td><b>Precio</b></td><td><b>Estado</b></td><td><b>Cancelar</b></td></tr>
 
                 <%!
@@ -67,7 +74,7 @@
                     <td><%=fechafin%></td>
                     <td><%=precio%> €</td>
                     <td><%=estado%></td>
-                    <td id="res"><input type="submit" value="Cancelar" class="button"  id="<%=idreserva%>"</input></td>
+                    <td id="res"><input type="submit" value="Cancelar" class="button" onclick="cancelarReserva(this.id)"  id="<%=idreserva%>"</input></td>
                     </tr>
                     <%
                             }
@@ -80,6 +87,7 @@
                     %>
            
                 </table>
+        </form>
     </body>
 </html>
 
