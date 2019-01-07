@@ -76,7 +76,7 @@ public class ActualizarDatos extends HttpServlet {
             usuario.setContraseña(contra);
             usuario.setDni(DNI);
             usuario.setTelefono(telefono);
-            foto2.BlobFile();
+            foto2.BlobFile(request.getServletContext().getRealPath("/images/users"));
             usuario.setFoto(foto2);
             System.out.println(usuario.getFoto().getNombreimg() + "asdkoijnfgiuhasbiofmaewsiofd");
             Thread.sleep(1500);
