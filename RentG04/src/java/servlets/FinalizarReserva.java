@@ -25,6 +25,7 @@ import utils.BD;
  */
 public class FinalizarReserva extends HttpServlet {
 
+    
     private Connection con;
     public void init(ServletConfig cfg) throws ServletException {
         con = BD.getConexion();
