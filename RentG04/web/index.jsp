@@ -19,7 +19,7 @@
     <body>
         <%= ObtenerCabecera.get(request, "index") %>
         <div id="mainContainer">
-            <form id="form_buscar" class="container" action="BuscarCoche" method="post">
+            <form id="form_buscar" class="container" onsubmit="return comprobar()" action="BuscarCoche" method="post">
                 <h1>Buscar vehiculo</h1>
 
                 Lugar de recogida<br>
