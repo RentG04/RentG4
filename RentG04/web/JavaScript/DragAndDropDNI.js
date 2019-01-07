@@ -8,6 +8,7 @@ var droppedFiles;
         document.getElementById('dnibox').addEventListener('dragover', permitirDrop, false);    
         document.getElementById('dnibox').addEventListener('drop', drop, false);
         document.getElementById('regArchivo').addEventListener('change',addFiles,false);
+        
     }
     
     function drop(ev){

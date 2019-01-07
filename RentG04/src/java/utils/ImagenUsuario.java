@@ -14,12 +14,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.servlet.ServletContext;
 import javax.swing.ImageIcon;
 import org.w3c.dom.events.Event;
 //import org.apache.tomcat.jni.File;
@@ -86,13 +88,18 @@ public class ImagenUsuario {
     public void BlobFile(String pth){
         try {
             byte [] b = archivoimg2.getBytes(1,(int) archivoimg2.length());
+            //String url = getClass().getClassLoader().getResource("images/users");
+            //System.out.println(getClass().getClassLoader().getResource(""));  //file:/C:/Users/WhiteWolf/Documents/NetBeansProjects/2VitoRent/RentG4/RentG04/build/web/WEB-INF/classes/
+            //System.out.println(new File("").getAbsolutePath()); //C:\Program Files\Apache Software Foundation\Apache Tomcat 8.0.27\bin
+            //System.out.println(getClass().getResource("/images/Coche.jpg")); //file:/C:/Users/WhiteWolf/Documents/NetBeansProjects/2VitoRent/RentG4/RentG04/build/web/WEB-INF/classes/utils/
+            System.out.println(pth); //C:\Users\WhiteWolf\Documents\NetBeansProjects\2VitoRent\RentG4\RentG04\build\web\images/users
             try {
                 img = File.createTempFile(nombreimg+"-",".png",new File(pth));
                 setPath();
                 FileOutputStream fos = new FileOutputStream(img);
                 fos.write(b);
                 fos.close();
-                System.out.println("imagen en: " + img.getAbsolutePath());
+                System.out.println(" imagen en: " + img.getAbsolutePath());
             } catch (IOException ex) {
                 Logger.getLogger(ImagenUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }

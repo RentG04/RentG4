@@ -38,6 +38,7 @@
                     Arrastre y suelte su foto aquí.
                 </span>
             </label>-->
+
             <input type="file" name="Archivo" id="regArchivo" value=""/>
             <label for="regArchivo" id="dnibox" type="file" dropzone="" ondragover="drover()" ondragleave="drleave()" name="Archivo">
                 <span id="fileLabelText">
