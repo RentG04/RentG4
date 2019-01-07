@@ -21,3 +21,13 @@ function diferenciaFechas(entrega, devolucion){
     return horas;
 }
 
+function fechaNoValida(){
+    alert("La cancelación tiene que ser de al menos 2 horas de antelación");
+    return false;
+}
+
+function cancelarReserva(){
+    alert("Reserva cancelada");
+    return true;
+}
+

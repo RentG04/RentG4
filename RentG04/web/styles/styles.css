@@ -161,9 +161,9 @@ input, select {
 }
 .container{
     color: white;
-    width: 40%;
-    max-width: 800px;
-    margin: 120px auto;
+    width: 50%;
+    max-width: 1000px;
+    margin: 100px auto;
 }
 .logo1{
     top: 20%;
@@ -183,8 +183,8 @@ input, select {
 table{
     border: 1px solid #EC9B50;
     text-align: left;    
-    width: 60%;
-    padding: 15px;
+    width: 80%;
+    padding: 5px;
     color: white;
 }
 td, th{
@@ -194,8 +194,7 @@ td, th{
     color: white;
 }
 
-td#res{
-    
+td#res{ 
     width:30px;
 }
 
@@ -206,8 +205,8 @@ td#image{
 
 #tablaCoches{
     position: relative;
-    top: 30px;
-    left: 20%;
+    top: 15px;
+    left: 10%;
 }
 
 #error-box{
