@@ -22,7 +22,7 @@
     </servlet>
     <servlet>
         <servlet-name>ReservasEmpleado1</servlet-name>
-        <servlet-class>servlets.ReservasEmpleado1</servlet-class>
+        <servlet-class>servlets.ReservasEmpleado</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistroUsuario</servlet-name>

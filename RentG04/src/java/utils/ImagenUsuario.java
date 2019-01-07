@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import org.w3c.dom.events.Event;
 //import org.apache.tomcat.jni.File;
 
 public class ImagenUsuario {
@@ -78,10 +79,10 @@ public class ImagenUsuario {
         this.archivoimg2 = archivoimg2;
     }
 
-    public void setImg(File img){
-        
-        this.img = img;   
-    }
+//    public void setImg(File img){
+//        
+//        this.img = img;   
+//    }
     public void BlobFile(){
         try {
             byte [] b = archivoimg2.getBytes(1,(int) archivoimg2.length());
@@ -100,24 +101,10 @@ public class ImagenUsuario {
         }
         
     }
-    public void deleteImg(){
+    public String deleteImg(){
         System.out.println("imagen borrada");
         img.deleteOnExit();
+        return "";
     }
-    //    public ImageIcon getImagen() throws IOException{
-//         
-//        BufferedImage img = null;
-//        InputStream is = new ByteArrayInputStream(archivoimg2);
-//        img = ImageIO.read(is);
-//        ImageIcon icon = new ImageIcon(img);
-////        BufferedImage bImage = ImageIO.read(file);
-////        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-////        ImageIO.write(bImage, "jpg", baos);
-////        byte [] data = baos.toByteArray();
-////        ByteArrayInputStream bais = new ByteArrayInputStream(data);
-////        BufferedImage bImage2 = ImageIO.read(bais);
-////        ImageIO.write(bImage2, "png", new File(nombreimg + ".png") );
-//        return icon;
-//    }
    
 }

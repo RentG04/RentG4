@@ -4,6 +4,7 @@
     Author     : Iker Lopez
 --%>
 
+<%@page import="utils.ImagenUsuario"%>
 <%@page import="utils.ObtenerCabecera"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,15 +27,15 @@
                    error = (String) request.getAttribute("errorregistro");
                }
         %>
-        <form id="form_registro" class="container" action="RegistroUsuario" ondragover="prevDef()" method="post" enctype="multipart/form-data">
+        <form id="form_registro" class="container" action="RegistroUsuario" ondragover="permitirDrop()" method="post" enctype="multipart/form-data">
             <h1>Registro</h1>
-            <label id="dnibox" type="file" name="arch" dropzone="" ondragover="drover()" ondragleave="drleave()">
-                <span id="fileLabelText">
+            <input type="file" name="Archivo" id="regArchivo" value=""/>
+            <label for="regArchivo" id="dnibox" type="file" dropzone="" ondragover="drover()" ondragleave="drleave()" name="Archivo">
+                <span id="fileLabelText">Arrastre y Suelte su foto aquí
                     <br>
-                    Arrastre y suelte su foto aquí.
                 </span>
             </label>
-            <input type="file" name="Archivo" id="regArchivo" value="" onchange="" class="btn" />
+            
             <br>
             Usuario*<br>
             <input type="text" name="Usuario" class="textbox" value="" pattern="[A-Za-z]{3,}" size="25" id="regUsuario" required />

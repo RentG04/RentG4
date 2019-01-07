@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author unigo
  */
-public class ReservasEmpleado1 extends HttpServlet{
+public class ReservasEmpleado extends HttpServlet{
     
 
     public void doPost(HttpServletRequest req, HttpServletResponse res)

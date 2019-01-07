@@ -27,17 +27,21 @@ body {
     transition: 0.5s;*/
 }
 
-#form_registro #fileInput {
-    display: none;
-}
-
 #fileLabelText{
     
     text-transform: uppercase;
     color: orange;
+    text-align: center;
+    padding: auto;
+/*    content: "Arrastre y Suelte su foto aquí";   */
+}
+
+#regArchivo{
+    
+    display:none;
 }
 #dnibox{
-
+    
     background-color: #fff;
     background-repeat: no-repeat;
     background-size: 100%;

@@ -7,7 +7,6 @@ import java.sql.*;
 import javax.servlet.annotation.MultipartConfig;
 import utils.BD;
 import utils.ImagenUsuario;
-import com.oreilly.servlet.MultipartRequest;
 
 /**
  *
@@ -77,7 +76,6 @@ public class RegistroUsuario extends HttpServlet{
                 req.getRequestDispatcher("index.jsp").include(req, res);  
             }
             rs.close();
-        
         }catch (Exception e){
             e.printStackTrace();
         }
