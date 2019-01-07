@@ -52,7 +52,7 @@ public class LoginUsuario extends HttpServlet {
                 foto.setArchivoimg2((Blob) rs.getBlob("imagen"));
 //              foto.setArchivoimg(rs.getBinaryStream("imagen"));
                 foto.setNombreimg(usuario.getUsuario());
-                foto.BlobFile();
+                foto.BlobFile(req.getServletContext().getRealPath("/images/users"));
                 usuario.setFoto(foto);
                 Thread.sleep(1500);
                 HttpSession session = req.getSession();
