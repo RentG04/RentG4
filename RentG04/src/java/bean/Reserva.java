@@ -90,4 +90,22 @@ public class Reserva {
         }
         
     }
+    public void calcularExtras(String date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        try{
+            Date fechaFinal=dateFormat.parse(fechaFin+":00");
+            Date fechaEntrega=dateFormat.parse(date);
+            float dias= (((float)(fechaEntrega.getTime()-fechaFinal.getTime()))/86400000);
+            if(dias>0.0){
+                extras = Float.toString(80*dias);
+            }
+            else{
+                extras="0.0f";
+            }
+         
+        }catch(Exception e){
+            e.printStackTrace();
+            extras="0.0f";
+        }
+    }
 }

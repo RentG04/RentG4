@@ -11,7 +11,8 @@
             <meta charset="utf-8">
             <title>Reservas</title>
             <link rel="stylesheet" href="styles/styles.css">
-            <link rel="shortcut icon" href="images/icon.ico">      
+            <link rel="shortcut icon" href="images/icon.ico">    
+            <script src="JavaScript/functions.js"></script> 
     </head>
 
     <body>
@@ -22,7 +23,8 @@
         <table id="tablaCoches">
 
                 <tr><td><b>Matrícula</b></td><td><b>Fecha inicio</b></td><td><b>Fecha fin</b></td><td><b>Precio</b></td><td><b>Usuario</b></td><td><b>Estado</b></td></td><td><b>Botón</b></td></tr>
-
+                <form id="formFinalizarReserva" action ="FinalizarReserva" method="post">
+                    <input type="hidden" name="idReserva1" id="idReserva1" value=""> 
                 <%!
                     private Connection con;
                     private Statement set;
@@ -36,8 +38,8 @@
                 <%
 
                     try {
-                        String matrícula, fechaini, fechafin, estado;
-                        float precio;
+                        String matrícula, fechaini, fechafin, estado, idReserva;
+                        float precio, extras, precioTotal;
                         set = con.createStatement();
 //                        int num = ((bean.BusquedaReserva)request.getSession().getAttribute("BusquedaReserva")).getCampo();
                         String email = "", matricula, fecha1, fecha2;
@@ -62,20 +64,24 @@
                         
                         rs = set.executeQuery(sql);
                         while (rs.next()) {
+                            idReserva = rs.getString("idreserva");
                             matrícula = rs.getString("matricula");
                             fechaini = rs.getString("fechaIni");
                             fechafin = rs.getString("fechaFin");
                             precio = rs.getFloat("precio");
                             email = rs.getString("email");
                             estado = rs.getString("estado");
+                            extras = rs.getFloat("extras");
+                            precioTotal = precio+extras;
 
                 %>                         
                 <tr><td><%=matrícula%></td>
                     <td><%=fechaini%></td>
                     <td><%=fechafin%></td>
-                    <td><%=precio%> €</td>
+                    <td><%=precioTotal%> €</td>
                     <td><%=email%></td>
                     <td><%=estado%></td>
+                    <td><input class="button" type="submit" id="<%=idReserva%>" onclick="finalizarReserva(this.id)" value="Finalizar"></td>
                     </tr>
                     <%
                             }
@@ -86,6 +92,7 @@
                             System.out.println("Error en acceso a BD Reservas " + ex);
                         }
                     %>
+                </form>
                 </table>
     </body>
 </html>

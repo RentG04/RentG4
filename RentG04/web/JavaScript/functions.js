@@ -32,3 +32,7 @@ function cancelarReserva(idReserva){
     return true;
 }
 
+function finalizarReserva(idReserva){
+    document.getElementById("idReserva1").value = idReserva;
+}
+
