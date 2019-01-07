@@ -30,7 +30,7 @@
                 </nav> 
             </header>
         
-                <form id="form_actualizar" class="container" ondragover="prevDef()" action="ActualizarDatos" method="POST" enctype="multipart/form-data">
+        <form id="form_actualizar" class="container" ondragover="prevDef()" action="ActualizarDatos" method="POST" enctype="multipart/form-data">
             <h1 id="nombrePerfil"></h1>
 <!--            <label id="dnibox" dropzone="" ondragover="drover()" ondragleave="drleave()">
                 <span id="fileLabelText">
@@ -39,13 +39,16 @@
                 </span>
             </label>-->
 
+            <img src="${usr.foto.path}" id="iconoperfil"/>
             <input type="file" name="Archivo" id="regArchivo" value=""/>
             <label for="regArchivo" id="dnibox" type="file" dropzone="" ondragover="drover()" ondragleave="drleave()" name="Archivo">
                 <span id="fileLabelText">
-                    Arrastre y Suelte su foto aquí
+                        Seleccione otra imagen para cambiarla
                     <br>
+                    
                 </span>
             </label>
+            
             <br>
             Usuario*<br>
             <input type="text" name="Usuario" class="textbox" value="${usr.usuario}" pattern="[A-Za-z]{3,}" size="25" id="perfUsuario" required />
@@ -69,6 +72,6 @@
             <div class="error" id="error-usuariop"></div>
             
             <input type="submit" class="button" value="Guardar" id="guardarPerfil" onclick="updatePerfil()"/>
-         </form>       
+        </form>       
     </body>
 </html>

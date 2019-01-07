@@ -55,8 +55,8 @@ public class ActualizarDatos extends HttpServlet {
             ps.setString(2, contra);
             ps.setString(3, DNI);
             ps.setString(4, telefono);
-            ps.setString(5, correo);
-            ps.setBlob(6,foto2.getArchivoimg());
+            ps.setString(6, correo);
+            ps.setBlob(5,foto2.getArchivoimg());
             
             ps.executeUpdate();
             
@@ -78,7 +78,7 @@ public class ActualizarDatos extends HttpServlet {
             usuario.setTelefono(telefono);
             foto2.BlobFile(request.getServletContext().getRealPath("/images/users"));
             usuario.setFoto(foto2);
-            System.out.println(usuario.getFoto().getNombreimg() + "asdkoijnfgiuhasbiofmaewsiofd");
+            System.out.println(usuario.getFoto().getNombreimg() + " asdkoijnfgiuhasbiofmaewsiofd");
             Thread.sleep(1500);
             
             HttpSession session = request.getSession();

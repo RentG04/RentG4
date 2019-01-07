@@ -53,7 +53,7 @@
                     try {
                         String matrícula, estado;
                         Date fechaini, fechafin;
-                        float precio;
+                        float precio, extras, precioTotal;
                         int idreserva;
                         set = con.createStatement();
                         String e = ((bean.Usuario)request.getSession().getAttribute("usr")).getEmail();
@@ -65,6 +65,8 @@
                             fechafin = rs.getDate("fechaFin");
                             precio = rs.getFloat("precio");
                             estado = rs.getString("estado");
+                            extras = rs.getFloat("extras");
+                            precioTotal = precio+extras;
                             
 
                %>   
@@ -72,7 +74,7 @@
                 <tr><td><%=matrícula%></td>
                     <td><%=fechaini%></td>
                     <td><%=fechafin%></td>
-                    <td><%=precio%> €</td>
+                    <td><%=precioTotal%> €</td>
                     <td><%=estado%></td>
                     <td id="res"><input type="submit" value="Cancelar" class="button" onclick="cancelarReserva(this.id)"  id="<%=idreserva%>"</input></td>
                     </tr>

@@ -28,6 +28,10 @@
         <servlet-name>CancelarReserva</servlet-name>
         <servlet-class>servlets.CancelarReserva</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FinalizarReserva</servlet-name>
+        <servlet-class>servlets.FinalizarReserva</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistroUsuario</servlet-name>
         <url-pattern>/RegistroUsuario</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>CancelarReserva</servlet-name>
         <url-pattern>/CancelarReserva</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalizarReserva</servlet-name>
+        <url-pattern>/FinalizarReserva</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
