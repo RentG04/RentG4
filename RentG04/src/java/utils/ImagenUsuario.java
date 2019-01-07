@@ -83,11 +83,11 @@ public class ImagenUsuario {
 //        
 //        this.img = img;   
 //    }
-    public void BlobFile(){
+    public void BlobFile(String pth){
         try {
             byte [] b = archivoimg2.getBytes(1,(int) archivoimg2.length());
             try {
-                img = File.createTempFile(nombreimg+"-",".png",new File("C:\\Users\\WhiteWolf\\Documents\\NetBeansProjects\\2VitoRent\\RentG4\\RentG04\\web\\images\\users"));
+                img = File.createTempFile(nombreimg+"-",".png",new File(pth));
                 setPath();
                 FileOutputStream fos = new FileOutputStream(img);
                 fos.write(b);
