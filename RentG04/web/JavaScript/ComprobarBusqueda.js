@@ -1,6 +1,6 @@
 
 function comprobar(){
-    var campo1 = document.getElementById("DNIRes");
+    var campo1 = document.getElementById("EmailRes");
     var campo2 = document.getElementById("matrRes");
     var campo3 = document.getElementById("horaentregaRes");
     var campo4 = document.getElementById("horarecogidaRes");

@@ -30,12 +30,19 @@
                 </nav> 
             </header>
         
-        <form id="form_actualizar" class="container" ondragover="prevDef()" action="ActualizarDatos" method="POST">
+                <form id="form_actualizar" class="container" ondragover="prevDef()" action="ActualizarDatos" method="POST" enctype="multipart/form-data">
             <h1 id="nombrePerfil"></h1>
-            <label id="dnibox" dropzone="" ondragover="drover()" ondragleave="drleave()">
+<!--            <label id="dnibox" dropzone="" ondragover="drover()" ondragleave="drleave()">
                 <span id="fileLabelText">
                     <br>
                     Arrastre y suelte su foto aquí.
+                </span>
+            </label>-->
+            <input type="file" name="Archivo" id="regArchivo" value=""/>
+            <label for="regArchivo" id="dnibox" type="file" dropzone="" ondragover="drover()" ondragleave="drleave()" name="Archivo">
+                <span id="fileLabelText">
+                    Arrastre y Suelte su foto aquí
+                    <br>
                 </span>
             </label>
             <br>

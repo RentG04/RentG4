@@ -21,8 +21,8 @@
         <servlet-class>servlets.ReservaCoche</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ReservasEmpleado1</servlet-name>
-        <servlet-class>servlets.ReservasEmpleado1</servlet-class>
+        <servlet-name>ReservasEmpleado</servlet-name>
+        <servlet-class>servlets.ReservasEmpleado</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistroUsuario</servlet-name>
@@ -53,8 +53,8 @@
         <url-pattern>/ReservaCoche</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ReservasEmpleado1</servlet-name>
-        <url-pattern>/ReservasEmpleado1</url-pattern>
+        <servlet-name>ReservasEmpleado</servlet-name>
+        <url-pattern>/ReservasEmpleado</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

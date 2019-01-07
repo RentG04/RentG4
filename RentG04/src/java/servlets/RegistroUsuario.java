@@ -77,7 +77,6 @@ public class RegistroUsuario extends HttpServlet{
                 req.getRequestDispatcher("index.jsp").include(req, res);  
             }
             rs.close();
-        
         }catch (Exception e){
             e.printStackTrace();
         }
