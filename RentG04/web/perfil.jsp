@@ -40,13 +40,14 @@
             </label>-->
 
             <img src="${usr.foto.path}" id="iconoperfil"/>
-            <input type="file" name="Archivo" id="regArchivo" value=""/>
-            <label for="regArchivo" id="dnibox" type="file" dropzone="" ondragover="drover()" ondragleave="drleave()" name="Archivo">
-                <span id="fileLabelText">
+            <br>
+            <span id="fileLabelText">
                         Seleccione otra imagen para cambiarla
                     <br>
                     
-                </span>
+            </span>
+            <input type="file" name="Archivo" id="regArchivo" value=""/>
+            <label for="regArchivo" id="dnibox" type="file" dropzone="" ondragover="drover()" ondragleave="drleave()" name="Archivo">
             </label>
             
             <br>

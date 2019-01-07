@@ -39,11 +39,11 @@ body {
 }
 
 #fileLabelText{
-    
+    display:block;
     text-transform: uppercase;
     color: orange;
     text-align: center;
-    padding: auto;
+    position: relative;
 /*    content: "Arrastre y Suelte su foto aquí";   */
 }
 

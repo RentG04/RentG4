@@ -30,12 +30,15 @@
         %>
         <form id="form_registro" class="container" action="RegistroUsuario" ondragover="permitirDrop()" method="post" enctype="multipart/form-data">
             <h1>Registro</h1>
-            <input type="file" name="Archivo" id="regArchivo" value=""/>
-            <label for="regArchivo" id="dnibox" type="file" dropzone="" ondragover="drover()" ondragleave="drleave()" name="Archivo">
-                <span id="fileLabelText">Arrastre y Suelte su foto aquí
+            <br>
+            <span id="fileLabelText" >
+                    Seleccione una imagen de su sistema
                     <br>
-                </span>
+            </span>
+            <input type="file" name="Archivo" id="regArchivo" value=""/>
+            <label for="regArchivo" id="dnibox" type="file" name="Archivo">  
             </label>
+            
             
             <br>
             Usuario*<br>
