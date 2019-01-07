@@ -67,13 +67,14 @@ public class ReservaCoche extends HttpServlet {
             r.calcularPrecio(precioDia);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             System.out.println("PRECIO  ------------>"+r.getPrecio());
             try{
-            PreparedStatement ps = con.prepareStatement("INSERT INTO reservas(email, matricula, fechaIni, fechaFin, precio, extras) values (?,?,?,?,?,?);");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO reservas(email, matricula, fechaIni, fechaFin, precio, extras, estado) values (?,?,?,?,?,?,?);");
             ps.setString(1, r.getEmail());
             ps.setString(2, r.getMatricula());
             ps.setString(3, r.getFechaInicio());
             ps.setString(4, r.getFechaFin());
             ps.setFloat(5, Float.parseFloat(r.getPrecio()));//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             ps.setFloat(6, 0.0f);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            ps.setString(7, "Reservado");
             
             ps.executeUpdate();
             
